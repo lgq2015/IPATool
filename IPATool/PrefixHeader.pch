@@ -1,0 +1,14 @@
+//
+//  PrefixHeader.pch
+//  IPATool
+//
+//  Created by Shuang Wu on 2017/5/31.
+//  Copyright © 2017年 unique. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define OptionsHasFlag(options, flag) (((options) & (flag)) == (flag))
+
+#endif /* PrefixHeader_pch */
