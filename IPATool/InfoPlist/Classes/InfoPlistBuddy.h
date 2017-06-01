@@ -28,4 +28,7 @@
 - (instancetype)initWithArguments:(CLArguments *)arguments;
 + (instancetype)buddyWithArguments:(CLArguments *)arguments;
 
++ (instancetype)getBuddyWithPath:(NSString *)path key:(NSString *)key;
++ (instancetype)setBuddyWithPath:(NSString *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type;
+
 @end

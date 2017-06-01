@@ -78,6 +78,21 @@ static NSString *AIAppPathInArguments(CLArguments *arguments) {
 	return [[self alloc] initWithArguments:arguments];
 }
 
+- (instancetype)initWithAppPath:(NSString *)appPath scale:(AIScaleOptions)scale device:(AIDeviceOptions)device {
+	self = [super init];
+	if (self) {
+		_appPath = [appPath copy];
+		_scaleOptions = scale;
+		_deviceOptions = device;
+	}
+	return self;
+}
+
++ (instancetype)matcherWithAppPath:(NSString *)appPath scale:(AIScaleOptions)scale device:(AIDeviceOptions)device {
+	return [[self alloc] initWithAppPath:appPath scale:scale device:device];
+}
+
+
 - (BOOL)isMatchScale:(NSUInteger)scale {
 	AIScaleOptions options = self.scaleOptions;
 	AIScaleOptions targetFlag = 1 < (scale - 1);

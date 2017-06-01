@@ -1,2 +1,2 @@
 # IPATool
-A powful tool to edit ipa package
+A powerful tool to edit ipa package

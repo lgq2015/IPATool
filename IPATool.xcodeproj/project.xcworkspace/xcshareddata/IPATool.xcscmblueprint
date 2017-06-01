@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "59C6460174AA2A47D65C357CC9EA4A197CA266B3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9DF2F0B4AC9B0179D000F65EDDC62931A2489470" : 9223372036854775807,
+    "59C6460174AA2A47D65C357CC9EA4A197CA266B3" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8C5E06DE-6262-4200-A8D3-FC321AD73DF1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9DF2F0B4AC9B0179D000F65EDDC62931A2489470" : "CommandLine\/",
+    "59C6460174AA2A47D65C357CC9EA4A197CA266B3" : "IPATool\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "IPATool",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "IPATool.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Magic-Unique\/IPATool.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "59C6460174AA2A47D65C357CC9EA4A197CA266B3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Magic-Unique\/CommandLine.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9DF2F0B4AC9B0179D000F65EDDC62931A2489470"
+    }
+  ]
+}

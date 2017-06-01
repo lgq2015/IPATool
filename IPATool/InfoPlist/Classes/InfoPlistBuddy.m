@@ -49,29 +49,21 @@ static id IPGetInfoPlistPathInPath(NSString *path) {
 
 @implementation InfoPlistBuddy
 
-- (instancetype)initWithArguments:(CLArguments *)arguments {
+- (instancetype)initWithPath:(NSString *)path format:(NSString *)format key:(NSString *)key type:(NSString *)type value:(NSString *)value {
 	self = [super init];
 	if (self) {
-		_key = [[arguments stringValueForKey:CLK_InfoPlist_Key] stringByReplacingOccurrencesOfString:@"/" withString:@":"];
+		_key = [key copy];
 		if (![_key hasPrefix:@":"]) {
 			_key = [@":" stringByAppendingString:_key];
 		}
 		
-		_format = @{@"info-set": @"Set",
-					@"info-get": @"Print",
-					@"info-add": @"Add",
-					@"info-del": @"Delete"}[arguments.command];
+		_format = [format copy];
 		
-		_type = @{@"string":@"string",
-				  @"array":@"array",
-				  @"dict":@"dict",
-				  @"dictionary":@"dict",
-				  @"number":@"integer",
-				  @"bool":@"bool"}[[arguments stringValueForKey:CLK_InfoPlist_Type]];
+		_type = [type copy];
 		
-		_value = [arguments stringValueForKey:CLK_InfoPlist_Object];
+		_value = [value copy];
 		
-		id res = IPGetInfoPlistPathInPath([arguments fullPathValueForKey:CLK_InfoPlist_Input]);
+		id res = IPGetInfoPlistPathInPath(path);
 		if ([res isKindOfClass:[NSError class]]) {
 			_error = res;
 		} else {
@@ -81,8 +73,40 @@ static id IPGetInfoPlistPathInPath(NSString *path) {
 	return self;
 }
 
+- (instancetype)initWithArguments:(CLArguments *)arguments {
+	NSString *key = [arguments stringValueForKey:CLK_InfoPlist_Key];
+	
+	NSString *format = @{@"info-set": @"Set",
+						 @"info-get": @"Print",
+						 @"info-add": @"Add",
+						 @"info-del": @"Delete"}[arguments.command];
+	
+	NSString *type = @{@"string":@"string",
+					   @"array":@"array",
+					   @"dict":@"dict",
+					   @"dictionary":@"dict",
+					   @"number":@"integer",
+					   @"bool":@"bool"}[[arguments stringValueForKey:CLK_InfoPlist_Type]];
+	
+	NSString *value = [arguments stringValueForKey:CLK_InfoPlist_Object];
+	
+	NSString *path = [arguments stringValueForKey:CLK_InfoPlist_Input];
+
+
+	self = [self initWithPath:path format:format key:key type:type value:value];
+	return self;
+}
+
 + (instancetype)buddyWithArguments:(CLArguments *)arguments {
 	return [[self alloc] initWithArguments:arguments];
+}
+
++ (instancetype)getBuddyWithPath:(NSString *)path key:(NSString *)key {
+	return [[self alloc] initWithPath:path format:@"Print" key:key type:nil value:nil];
+}
+
++ (instancetype)setBuddyWithPath:(NSString *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type {
+	return [[self alloc] initWithPath:path format:@"Set" key:key type:type value:value];
 }
 
 - (NSString *)command {

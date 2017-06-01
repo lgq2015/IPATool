@@ -7,34 +7,20 @@
 //
 
 #import "InfoPlist.h"
-#import "CommandLine.h"
-#import "InfoPlistBuddy.h"
+#import "CLArguments+InfoPlist.h"
+#import "InfoPlistReader.h"
+#import "InfoPlistEditor.h"
 
 @implementation InfoPlist
 
 + (id)get:(CLArguments *)arguments {
-	InfoPlistBuddy *buddy = [InfoPlistBuddy buddyWithArguments:arguments];
-	if (buddy.error) {
-		return buddy.error;
-	}
-	id res = buddy.taskResult;
-	return res;
+	InfoPlistReader *reader = [InfoPlistReader readerWithArguments:arguments];
+	return [reader read];
 }
 
 + (id)set:(CLArguments *)arguments {
-	id res = [self get:arguments];
-	if ([res isKindOfClass:[NSError class]]) {
-		return res;
-	}
-	
-	NSString *orig = res;
-	
-	InfoPlistBuddy *buddy = [InfoPlistBuddy buddyWithArguments:arguments];
-	if (buddy.error) {
-		return buddy.error;
-	}
-	res = buddy.taskResult;
-	return res;
+	InfoPlistEditor *editor = [InfoPlistEditor editorWithArguments:arguments];
+	return [editor edit];
 }
 
 @end

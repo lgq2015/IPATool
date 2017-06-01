@@ -26,8 +26,8 @@
 - (instancetype)initWithArguments:(CLArguments *)arguments;
 + (instancetype)matcherWithArguments:(CLArguments *)arguments;
 
-//- (instancetype)initWithAppPath:(NSString *)appPath scale:(AIScaleOptions)scale device:(AIDeviceOptions)device;
-//+ (instancetype)matcherWithAppPath:(NSString *)appPath scale:(AIScaleOptions)scale device:(AIDeviceOptions)device;
+- (instancetype)initWithAppPath:(NSString *)appPath scale:(AIScaleOptions)scale device:(AIDeviceOptions)device;
++ (instancetype)matcherWithAppPath:(NSString *)appPath scale:(AIScaleOptions)scale device:(AIDeviceOptions)device;
 
 /** 
  *	Match all icon file

@@ -28,6 +28,8 @@
 		6DAEEDF21EDEBA1C00DB04F2 /* InfoPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAEEDF11EDEBA1C00DB04F2 /* InfoPlist.m */; };
 		6DAEEDFC1EDEC3CD00DB04F2 /* NSError+InfoPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAEEDFB1EDEC3CD00DB04F2 /* NSError+InfoPlist.m */; };
 		6DAEEDFF1EDEC99C00DB04F2 /* InfoPlistBuddy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAEEDFE1EDEC99C00DB04F2 /* InfoPlistBuddy.m */; };
+		D44B71E01EE06D3800269A04 /* InfoPlistEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = D44B71DF1EE06D3800269A04 /* InfoPlistEditor.m */; };
+		D44B71E31EE06EC300269A04 /* InfoPlistReader.m in Sources */ = {isa = PBXBuildFile; fileRef = D44B71E21EE06EC300269A04 /* InfoPlistReader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,6 +90,10 @@
 		6DAEEDFB1EDEC3CD00DB04F2 /* NSError+InfoPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+InfoPlist.m"; sourceTree = "<group>"; };
 		6DAEEDFD1EDEC99C00DB04F2 /* InfoPlistBuddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoPlistBuddy.h; sourceTree = "<group>"; };
 		6DAEEDFE1EDEC99C00DB04F2 /* InfoPlistBuddy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoPlistBuddy.m; sourceTree = "<group>"; };
+		D44B71DE1EE06D3800269A04 /* InfoPlistEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoPlistEditor.h; sourceTree = "<group>"; };
+		D44B71DF1EE06D3800269A04 /* InfoPlistEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoPlistEditor.m; sourceTree = "<group>"; };
+		D44B71E11EE06EC300269A04 /* InfoPlistReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoPlistReader.h; sourceTree = "<group>"; };
+		D44B71E21EE06EC300269A04 /* InfoPlistReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoPlistReader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +304,10 @@
 			children = (
 				6DAEEDF01EDEBA1C00DB04F2 /* InfoPlist.h */,
 				6DAEEDF11EDEBA1C00DB04F2 /* InfoPlist.m */,
+				D44B71DE1EE06D3800269A04 /* InfoPlistEditor.h */,
+				D44B71DF1EE06D3800269A04 /* InfoPlistEditor.m */,
+				D44B71E11EE06EC300269A04 /* InfoPlistReader.h */,
+				D44B71E21EE06EC300269A04 /* InfoPlistReader.m */,
 				6DAEEDFD1EDEC99C00DB04F2 /* InfoPlistBuddy.h */,
 				6DAEEDFE1EDEC99C00DB04F2 /* InfoPlistBuddy.m */,
 			);
@@ -381,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DAEEDC01EDE751100DB04F2 /* AppIcon.m in Sources */,
+				D44B71E31EE06EC300269A04 /* InfoPlistReader.m in Sources */,
 				6DAEEDE01EDEA27900DB04F2 /* IPAMain.m in Sources */,
 				6DAEEDEF1EDEB38300DB04F2 /* CLArguments+InfoPlist.m in Sources */,
 				6DAEEDA11EDE6B9600DB04F2 /* CLCommandExplain.m in Sources */,
@@ -389,6 +400,7 @@
 				6DAEEDFF1EDEC99C00DB04F2 /* InfoPlistBuddy.m in Sources */,
 				6DAEEDA21EDE6B9600DB04F2 /* CLExplainItem.m in Sources */,
 				6DAEEDC31EDE759600DB04F2 /* AIMatcher.m in Sources */,
+				D44B71E01EE06D3800269A04 /* InfoPlistEditor.m in Sources */,
 				6DAEEDAB1EDE6D0D00DB04F2 /* CLArguments+IPATool.m in Sources */,
 				6DAEEDD01EDE96B200DB04F2 /* MUPath.m in Sources */,
 				6DAEEDA31EDE6B9600DB04F2 /* NSTask+CommandLine.m in Sources */,

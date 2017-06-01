@@ -22,7 +22,9 @@
 }
 
 + (id)get:(NSString *)appPath device:(AIDeviceOptions)device scale:(AIScaleOptions)scale {
-	return nil;
+	AIMatcher *matcher = [AIMatcher matcherWithAppPath:appPath scale:scale device:device];
+	id matched = [matcher match];
+	return matched;
 }
 
 + (id)set:(CLArguments *)arguments willSet:(AIOnSetIcon)willSet didSet:(AIOnSetIcon)didSet {
