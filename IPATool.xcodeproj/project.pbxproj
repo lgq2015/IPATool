@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D04F6BF1EE0FF4E007D48F5 /* ITPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6BC1EE0FF4E007D48F5 /* ITPath.m */; };
+		6D04F6C01EE0FF4E007D48F5 /* ITPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6BE1EE0FF4E007D48F5 /* ITPayload.m */; };
+		6D04F6C31EE0FF8C007D48F5 /* ITApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6C21EE0FF8C007D48F5 /* ITApp.m */; };
+		6D04F6C61EE0FFAC007D48F5 /* ITIPA.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6C51EE0FFAC007D48F5 /* ITIPA.m */; };
+		6D04F6C91EE10A55007D48F5 /* ITInfoPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6C81EE10A55007D48F5 /* ITInfoPlist.m */; };
+		6D04F6CC1EE10B87007D48F5 /* ITPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6CB1EE10B87007D48F5 /* ITPlugin.m */; };
+		6D04F6CF1EE1159D007D48F5 /* ITBinary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6CE1EE1159D007D48F5 /* ITBinary.m */; };
+		6D04F6D51EE125AA007D48F5 /* NSArray+IPATool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6D41EE125AA007D48F5 /* NSArray+IPATool.m */; };
+		6D04F6DD1EE13CB9007D48F5 /* CLArguments+CodeSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6DC1EE13CB9007D48F5 /* CLArguments+CodeSign.m */; };
+		6D04F6E01EE142A7007D48F5 /* CodeSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6DF1EE142A7007D48F5 /* CodeSign.m */; };
+		6D04F6E71EE147A4007D48F5 /* ITMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6E61EE147A4007D48F5 /* ITMobileProvision.m */; };
+		6D04F6ED1EE14A67007D48F5 /* MUEntitlements.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6EA1EE14A67007D48F5 /* MUEntitlements.m */; };
+		6D04F6EE1EE14A67007D48F5 /* MUMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6EC1EE14A67007D48F5 /* MUMobileProvision.m */; };
+		6D6627041EE156E80036E136 /* CSTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6627031EE156E80036E136 /* CSTask.m */; };
+		6D6627071EE156F40036E136 /* CSFileTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6627061EE156F40036E136 /* CSFileTask.m */; };
+		6D66270A1EE15A8A0036E136 /* NSError+CodeSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6627091EE15A8A0036E136 /* NSError+CodeSign.m */; };
+		6D6627101EE15CDC0036E136 /* CSBundleTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D66270F1EE15CDC0036E136 /* CSBundleTask.m */; };
+		6D6627131EE16FAB0036E136 /* ITPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6627121EE16FAB0036E136 /* ITPackage.m */; };
 		6DAEED901EDE6B3000DB04F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAEED8F1EDE6B3000DB04F2 /* main.m */; };
 		6DAEEDA01EDE6B9600DB04F2 /* CLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAEED981EDE6B9600DB04F2 /* CLArguments.m */; };
 		6DAEEDA11EDE6B9600DB04F2 /* CLCommandExplain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAEED9A1EDE6B9600DB04F2 /* CLCommandExplain.m */; };
@@ -33,18 +51,55 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6DAEED8A1EDE6B3000DB04F2 /* CopyFiles */ = {
+		6DAEED8A1EDE6B3000DB04F2 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D04F6BB1EE0FF4E007D48F5 /* ITPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITPath.h; sourceTree = "<group>"; };
+		6D04F6BC1EE0FF4E007D48F5 /* ITPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITPath.m; sourceTree = "<group>"; };
+		6D04F6BD1EE0FF4E007D48F5 /* ITPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITPayload.h; sourceTree = "<group>"; };
+		6D04F6BE1EE0FF4E007D48F5 /* ITPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITPayload.m; sourceTree = "<group>"; };
+		6D04F6C11EE0FF8C007D48F5 /* ITApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITApp.h; sourceTree = "<group>"; };
+		6D04F6C21EE0FF8C007D48F5 /* ITApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITApp.m; sourceTree = "<group>"; };
+		6D04F6C41EE0FFAC007D48F5 /* ITIPA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITIPA.h; sourceTree = "<group>"; };
+		6D04F6C51EE0FFAC007D48F5 /* ITIPA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITIPA.m; sourceTree = "<group>"; };
+		6D04F6C71EE10A55007D48F5 /* ITInfoPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITInfoPlist.h; sourceTree = "<group>"; };
+		6D04F6C81EE10A55007D48F5 /* ITInfoPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITInfoPlist.m; sourceTree = "<group>"; };
+		6D04F6CA1EE10B87007D48F5 /* ITPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITPlugin.h; sourceTree = "<group>"; };
+		6D04F6CB1EE10B87007D48F5 /* ITPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITPlugin.m; sourceTree = "<group>"; };
+		6D04F6CD1EE1159D007D48F5 /* ITBinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITBinary.h; sourceTree = "<group>"; };
+		6D04F6CE1EE1159D007D48F5 /* ITBinary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITBinary.m; sourceTree = "<group>"; };
+		6D04F6D31EE125AA007D48F5 /* NSArray+IPATool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+IPATool.h"; sourceTree = "<group>"; };
+		6D04F6D41EE125AA007D48F5 /* NSArray+IPATool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+IPATool.m"; sourceTree = "<group>"; };
+		6D04F6DB1EE13CB9007D48F5 /* CLArguments+CodeSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLArguments+CodeSign.h"; sourceTree = "<group>"; };
+		6D04F6DC1EE13CB9007D48F5 /* CLArguments+CodeSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLArguments+CodeSign.m"; sourceTree = "<group>"; };
+		6D04F6DE1EE142A7007D48F5 /* CodeSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeSign.h; sourceTree = "<group>"; };
+		6D04F6DF1EE142A7007D48F5 /* CodeSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeSign.m; sourceTree = "<group>"; };
+		6D04F6E51EE147A4007D48F5 /* ITMobileProvision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITMobileProvision.h; sourceTree = "<group>"; };
+		6D04F6E61EE147A4007D48F5 /* ITMobileProvision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITMobileProvision.m; sourceTree = "<group>"; };
+		6D04F6E91EE14A67007D48F5 /* MUEntitlements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUEntitlements.h; sourceTree = "<group>"; };
+		6D04F6EA1EE14A67007D48F5 /* MUEntitlements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUEntitlements.m; sourceTree = "<group>"; };
+		6D04F6EB1EE14A67007D48F5 /* MUMobileProvision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUMobileProvision.h; sourceTree = "<group>"; };
+		6D04F6EC1EE14A67007D48F5 /* MUMobileProvision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUMobileProvision.m; sourceTree = "<group>"; };
+		6D6627021EE156E80036E136 /* CSTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSTask.h; sourceTree = "<group>"; };
+		6D6627031EE156E80036E136 /* CSTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSTask.m; sourceTree = "<group>"; };
+		6D6627051EE156F40036E136 /* CSFileTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSFileTask.h; sourceTree = "<group>"; };
+		6D6627061EE156F40036E136 /* CSFileTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSFileTask.m; sourceTree = "<group>"; };
+		6D6627081EE15A8A0036E136 /* NSError+CodeSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+CodeSign.h"; sourceTree = "<group>"; };
+		6D6627091EE15A8A0036E136 /* NSError+CodeSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+CodeSign.m"; sourceTree = "<group>"; };
+		6D66270E1EE15CDC0036E136 /* CSBundleTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSBundleTask.h; sourceTree = "<group>"; };
+		6D66270F1EE15CDC0036E136 /* CSBundleTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSBundleTask.m; sourceTree = "<group>"; };
+		6D6627111EE16FAB0036E136 /* ITPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITPackage.h; sourceTree = "<group>"; };
+		6D6627121EE16FAB0036E136 /* ITPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITPackage.m; sourceTree = "<group>"; };
 		6DAEED8C1EDE6B3000DB04F2 /* IPATool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = IPATool; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DAEED8F1EDE6B3000DB04F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6DAEED971EDE6B9600DB04F2 /* CLArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLArguments.h; sourceTree = "<group>"; };
@@ -107,6 +162,124 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D04F6BA1EE0FF4E007D48F5 /* Path */ = {
+			isa = PBXGroup;
+			children = (
+				6D04F6BB1EE0FF4E007D48F5 /* ITPath.h */,
+				6D04F6BC1EE0FF4E007D48F5 /* ITPath.m */,
+				6D04F6C41EE0FFAC007D48F5 /* ITIPA.h */,
+				6D04F6C51EE0FFAC007D48F5 /* ITIPA.m */,
+				6D04F6BD1EE0FF4E007D48F5 /* ITPayload.h */,
+				6D04F6BE1EE0FF4E007D48F5 /* ITPayload.m */,
+				6D6627111EE16FAB0036E136 /* ITPackage.h */,
+				6D6627121EE16FAB0036E136 /* ITPackage.m */,
+				6D04F6C11EE0FF8C007D48F5 /* ITApp.h */,
+				6D04F6C21EE0FF8C007D48F5 /* ITApp.m */,
+				6D04F6CA1EE10B87007D48F5 /* ITPlugin.h */,
+				6D04F6CB1EE10B87007D48F5 /* ITPlugin.m */,
+				6D04F6C71EE10A55007D48F5 /* ITInfoPlist.h */,
+				6D04F6C81EE10A55007D48F5 /* ITInfoPlist.m */,
+				6D04F6CD1EE1159D007D48F5 /* ITBinary.h */,
+				6D04F6CE1EE1159D007D48F5 /* ITBinary.m */,
+				6D04F6E51EE147A4007D48F5 /* ITMobileProvision.h */,
+				6D04F6E61EE147A4007D48F5 /* ITMobileProvision.m */,
+			);
+			path = Path;
+			sourceTree = "<group>";
+		};
+		6D04F6D61EE13C84007D48F5 /* CodeSign */ = {
+			isa = PBXGroup;
+			children = (
+				6D04F6D81EE13CA9007D48F5 /* Category */,
+				6D04F6D71EE13CA9007D48F5 /* Classes */,
+			);
+			path = CodeSign;
+			sourceTree = "<group>";
+		};
+		6D04F6D71EE13CA9007D48F5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6D04F6DE1EE142A7007D48F5 /* CodeSign.h */,
+				6D04F6DF1EE142A7007D48F5 /* CodeSign.m */,
+				6D6627021EE156E80036E136 /* CSTask.h */,
+				6D6627031EE156E80036E136 /* CSTask.m */,
+				6D6627051EE156F40036E136 /* CSFileTask.h */,
+				6D6627061EE156F40036E136 /* CSFileTask.m */,
+				6D66270E1EE15CDC0036E136 /* CSBundleTask.h */,
+				6D66270F1EE15CDC0036E136 /* CSBundleTask.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6D04F6D81EE13CA9007D48F5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				6D04F6D91EE13CA9007D48F5 /* CLArguments */,
+				6D04F6DA1EE13CA9007D48F5 /* Foundation */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		6D04F6D91EE13CA9007D48F5 /* CLArguments */ = {
+			isa = PBXGroup;
+			children = (
+				6D04F6DB1EE13CB9007D48F5 /* CLArguments+CodeSign.h */,
+				6D04F6DC1EE13CB9007D48F5 /* CLArguments+CodeSign.m */,
+			);
+			path = CLArguments;
+			sourceTree = "<group>";
+		};
+		6D04F6DA1EE13CA9007D48F5 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				6D6627081EE15A8A0036E136 /* NSError+CodeSign.h */,
+				6D6627091EE15A8A0036E136 /* NSError+CodeSign.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		6D04F6E11EE146D9007D48F5 /* MobileProvision */ = {
+			isa = PBXGroup;
+			children = (
+				6D04F6E21EE146D9007D48F5 /* Category */,
+				6D04F6E41EE146D9007D48F5 /* Classes */,
+			);
+			path = MobileProvision;
+			sourceTree = "<group>";
+		};
+		6D04F6E21EE146D9007D48F5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				6D04F6E31EE146D9007D48F5 /* CLArguments */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		6D04F6E31EE146D9007D48F5 /* CLArguments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CLArguments;
+			sourceTree = "<group>";
+		};
+		6D04F6E41EE146D9007D48F5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6D04F6E81EE14A67007D48F5 /* MUMobileProvision */ = {
+			isa = PBXGroup;
+			children = (
+				6D04F6E91EE14A67007D48F5 /* MUEntitlements.h */,
+				6D04F6EA1EE14A67007D48F5 /* MUEntitlements.m */,
+				6D04F6EB1EE14A67007D48F5 /* MUMobileProvision.h */,
+				6D04F6EC1EE14A67007D48F5 /* MUMobileProvision.m */,
+			);
+			path = MUMobileProvision;
+			sourceTree = "<group>";
+		};
 		6DAEED831EDE6B3000DB04F2 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +303,8 @@
 				6DAEEDA51EDE6C5100DB04F2 /* Shared */,
 				6DAEEDB41EDE737100DB04F2 /* AppIcon */,
 				6DAEEDE91EDEB35300DB04F2 /* InfoPlist */,
+				6D04F6D61EE13C84007D48F5 /* CodeSign */,
+				6D04F6E11EE146D9007D48F5 /* MobileProvision */,
 				6DAEED8F1EDE6B3000DB04F2 /* main.m */,
 				6DAEEDC41EDE765D00DB04F2 /* PrefixHeader.pch */,
 			);
@@ -177,6 +352,7 @@
 			children = (
 				6DAEED961EDE6B9600DB04F2 /* CommandLine */,
 				6DAEEDCD1EDE96A500DB04F2 /* MUPath */,
+				6D04F6E81EE14A67007D48F5 /* MUMobileProvision */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -255,6 +431,7 @@
 		6DAEEDD71EDEA1E500DB04F2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6D04F6BA1EE0FF4E007D48F5 /* Path */,
 				6DAEEDDB1EDEA23400DB04F2 /* IPACommandTask.h */,
 				6DAEEDDC1EDEA23400DB04F2 /* IPACommandTask.m */,
 				6DAEEDDE1EDEA27900DB04F2 /* IPAMain.h */,
@@ -277,6 +454,8 @@
 			children = (
 				6DAEEDE61EDEAFA100DB04F2 /* NSError+IPATool.h */,
 				6DAEEDE71EDEAFA100DB04F2 /* NSError+IPATool.m */,
+				6D04F6D31EE125AA007D48F5 /* NSArray+IPATool.h */,
+				6D04F6D41EE125AA007D48F5 /* NSArray+IPATool.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -341,7 +520,7 @@
 			buildPhases = (
 				6DAEED881EDE6B3000DB04F2 /* Sources */,
 				6DAEED891EDE6B3000DB04F2 /* Frameworks */,
-				6DAEED8A1EDE6B3000DB04F2 /* CopyFiles */,
+				6DAEED8A1EDE6B3000DB04F2 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -390,27 +569,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D04F6CC1EE10B87007D48F5 /* ITPlugin.m in Sources */,
+				6D04F6EE1EE14A67007D48F5 /* MUMobileProvision.m in Sources */,
 				6DAEEDC01EDE751100DB04F2 /* AppIcon.m in Sources */,
 				D44B71E31EE06EC300269A04 /* InfoPlistReader.m in Sources */,
+				6D6627041EE156E80036E136 /* CSTask.m in Sources */,
 				6DAEEDE01EDEA27900DB04F2 /* IPAMain.m in Sources */,
 				6DAEEDEF1EDEB38300DB04F2 /* CLArguments+InfoPlist.m in Sources */,
+				6D6627131EE16FAB0036E136 /* ITPackage.m in Sources */,
 				6DAEEDA11EDE6B9600DB04F2 /* CLCommandExplain.m in Sources */,
 				6DAEEDE41EDEA4C200DB04F2 /* NSImage+AppIcon.m in Sources */,
 				6DAEEDC81EDE8FCA00DB04F2 /* NSError+AppIcon.m in Sources */,
 				6DAEEDFF1EDEC99C00DB04F2 /* InfoPlistBuddy.m in Sources */,
+				6D04F6C31EE0FF8C007D48F5 /* ITApp.m in Sources */,
+				6D6627071EE156F40036E136 /* CSFileTask.m in Sources */,
 				6DAEEDA21EDE6B9600DB04F2 /* CLExplainItem.m in Sources */,
+				6D04F6CF1EE1159D007D48F5 /* ITBinary.m in Sources */,
 				6DAEEDC31EDE759600DB04F2 /* AIMatcher.m in Sources */,
+				6D04F6DD1EE13CB9007D48F5 /* CLArguments+CodeSign.m in Sources */,
+				6D04F6E71EE147A4007D48F5 /* ITMobileProvision.m in Sources */,
+				6D04F6E01EE142A7007D48F5 /* CodeSign.m in Sources */,
 				D44B71E01EE06D3800269A04 /* InfoPlistEditor.m in Sources */,
 				6DAEEDAB1EDE6D0D00DB04F2 /* CLArguments+IPATool.m in Sources */,
+				6D04F6C01EE0FF4E007D48F5 /* ITPayload.m in Sources */,
 				6DAEEDD01EDE96B200DB04F2 /* MUPath.m in Sources */,
 				6DAEEDA31EDE6B9600DB04F2 /* NSTask+CommandLine.m in Sources */,
 				6DAEEDBB1EDE737100DB04F2 /* CLArguments+AppIcon.m in Sources */,
 				6DAEEDFC1EDEC3CD00DB04F2 /* NSError+InfoPlist.m in Sources */,
+				6D04F6ED1EE14A67007D48F5 /* MUEntitlements.m in Sources */,
 				6DAEED901EDE6B3000DB04F2 /* main.m in Sources */,
+				6D04F6BF1EE0FF4E007D48F5 /* ITPath.m in Sources */,
+				6D04F6D51EE125AA007D48F5 /* NSArray+IPATool.m in Sources */,
 				6DAEEDA01EDE6B9600DB04F2 /* CLArguments.m in Sources */,
+				6D66270A1EE15A8A0036E136 /* NSError+CodeSign.m in Sources */,
 				6DAEEDD31EDE96CB00DB04F2 /* AIIconName.m in Sources */,
 				6DAEEDF21EDEBA1C00DB04F2 /* InfoPlist.m in Sources */,
 				6DAEEDE81EDEAFA100DB04F2 /* NSError+IPATool.m in Sources */,
+				6D04F6C61EE0FFAC007D48F5 /* ITIPA.m in Sources */,
+				6D6627101EE15CDC0036E136 /* CSBundleTask.m in Sources */,
+				6D04F6C91EE10A55007D48F5 /* ITInfoPlist.m in Sources */,
 				6DAEEDD61EDE980200DB04F2 /* AIIconNameSet.m in Sources */,
 				6DAEEDDD1EDEA23400DB04F2 /* IPACommandTask.m in Sources */,
 			);

@@ -25,6 +25,9 @@
 - (instancetype)initWithArguments:(CLArguments *)arguments;
 + (instancetype)editorWithArguments:(CLArguments *)arguments;
 
+- (instancetype)initWithPath:(NSString *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type pluginEnable:(BOOL)pluginEnable;
++ (instancetype)editorWIthPath:(NSString *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type pluginEnable:(BOOL)pluginEnable;
+
 - (NSError *)edit;
 
 @end

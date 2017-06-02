@@ -14,7 +14,8 @@ int main(int argc, const char * argv[]) {
 		CLArguments *arguments = [CLArguments sharedInstance];
 		[arguments analyseArgumentCount:argc values:argv];
 		[arguments printExplainAndExist:0];
-		[arguments executeCommand];
+		NSError *error = [arguments executeCommand];
+		return (int)error.code;
     }
     return 0;
 }

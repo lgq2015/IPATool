@@ -102,6 +102,18 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "info-set -i &quot;/Users/wushuang/Desktop/1.2.3/Payload&quot; -k &quot;CFBundleIdentifier&quot; -o &quot;com.unique.kalypsomedia&quot;"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "info-set -i &quot;/Users/wushuang/Desktop/Payload 2/WeChat.app&quot; -k &quot;CFBundleIdentifier&quot; -o &quot;com.tencent.xin.unique.xxx&quot; -p"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "info-get -i &quot;/Users/wushuang/Desktop/Payload 2/WeChat.app&quot; -k &quot;CFBundleIdentifier&quot;"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "code-sign -i &quot;/Users/wushuang/Desktop/Payload 2/WeChat.app&quot; -c &quot;iPhone Developer: Shuang Wu (433G9RW4GG)&quot; -m &quot;/Users/wushuang/Documents/&#x8bc1;&#x4e66;/Shuang Wu/ShuangWu_Development_Wildcard.mobileprovision&quot; -p -v"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

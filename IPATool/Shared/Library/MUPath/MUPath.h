@@ -18,12 +18,27 @@
 
 @property (nonatomic, strong, readonly) NSString *lastPathComponment;
 
+@property (nonatomic, strong, readonly) NSString *pathExtension;
+
+@property (nonatomic, assign, readonly, getter=isExist) BOOL exist;
+
+@property (nonatomic, assign, readonly, getter=isFolder) BOOL folder;
+
+@property (nonatomic, strong, readonly) NSArray<MUPath *> *contentPathes;
+
+@property (nonatomic, strong, readonly) NSArray<NSString *> *contentComponments;
+
 + (instancetype)tempPath;
+
+- (instancetype)initWithPath:(NSString *)path;
+- (instancetype)initWithMUPath:(MUPath *)path;
+- (instancetype)initWithComponments:(NSArray<NSString *> *)componments;
 
 - (void)remove;
 - (void)createDirectoryIfNeeds;
 
-- (instancetype)initWithPath:(NSString *)path;
-- (instancetype)initWithComponments:(NSArray<NSString *> *)componments;
+- (BOOL)containsSubpath:(NSString *)subpath;
+
+- (instancetype)pathWithAppendingComponment:(NSString *)componment;
 
 @end

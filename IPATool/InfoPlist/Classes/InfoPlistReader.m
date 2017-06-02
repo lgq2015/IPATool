@@ -10,6 +10,8 @@
 #import "CLArguments+InfoPlist.h"
 #import "InfoPlistBuddy.h"
 
+#import "ITApp.h"
+
 @interface InfoPlistReader ()
 {
 	InfoPlistBuddy *_plistBuddy;
@@ -45,12 +47,25 @@
 	return [[self alloc] initWithPath:path key:key];
 }
 
+- (NSString *)path {
+	return self.plistBuddy.path;
+}
+
+- (NSString *)key {
+	return self.plistBuddy.key;
+}
+
 - (id)read {
 	InfoPlistBuddy *buddy = self.plistBuddy;
 	if (buddy.error) {
 		return buddy.error;
 	}
 	id res = buddy.taskResult;
+	if ([res isKindOfClass:[NSString class]]) {
+		ITApp *app = [ITPath packagePathWithPath:[self.path stringByDeletingLastPathComponent]].app;
+		ITBinary *binary = app.binary;
+		NSLog(@"%@", binary.loadedUserLibrary);
+	}
 	return res;
 }
 

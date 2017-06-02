@@ -10,6 +10,7 @@
 
 #import "CLArguments+AppIcon.h"
 #import "CLArguments+InfoPlist.h"
+#import "CLArguments+CodeSign.h"
 
 @implementation CLArguments (IPATool)
 
@@ -26,6 +27,7 @@
 - (void)initCommand {
 	[self initAppIcon];
 	[self initInfoPlist];
+	[self initCodeSign];
 }
 
 @end
