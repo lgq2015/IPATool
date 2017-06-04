@@ -12,39 +12,38 @@
 #import "AIMatcher.h"
 #import "NSImage+AppIcon.h"
 #import "NSError+AppIcon.h"
+#import "ITApp.h"
 
 @implementation AppIcon
 
-+ (id)get:(CLArguments *)arguments {
-	AIMatcher *matcher = [AIMatcher matcherWithArguments:arguments];
-	id mathed = [matcher match];
-	return mathed;
-}
-
-+ (id)get:(NSString *)appPath device:(AIDeviceOptions)device scale:(AIScaleOptions)scale {
-	AIMatcher *matcher = [AIMatcher matcherWithAppPath:appPath scale:scale device:device];
++ (id)get:(ITApp *)app device:(AIDeviceOptions)device scale:(AIScaleOptions)scale {
+	AIMatcher *matcher = [AIMatcher matcherWithAppPath:app.path scale:scale device:device];
 	id matched = [matcher match];
 	return matched;
 }
 
-+ (id)set:(CLArguments *)arguments willSet:(AIOnSetIcon)willSet didSet:(AIOnSetIcon)didSet {
-	id get = [self get:arguments];
++ (NSError *)set:(ITApp *)app
+		  device:(AIDeviceOptions)device
+		   scale:(AIScaleOptions)scale
+		withIcon:(NSString *)icon
+		 willSet:(AIOnSetIcon)willSet
+		  didSet:(AIOnSetIcon)didSet {
+	
+	id get = [self get:app device:device scale:scale];
+	
 	if ([get isKindOfClass:[NSArray class]]) {
-		
 		NSArray *list = get;
-		NSString *path = [arguments fullPathValueForKey:CLK_AppIcon_AppPath];
-		
-		NSString *sourcePath = [arguments fullPathValueForKey:CLK_AppIcon_Icon];
-		if (sourcePath.length == 0) {
+		if (icon.length == 0) {
 			return [NSError ai_errorWithCode:AIErrorCodeNotInputPNGFile description:@"Can not change icon with the file named: (null)"];
 		}
-		NSImage *sourceImage = [[NSImage alloc] initWithContentsOfFile:sourcePath];
+		NSImage *sourceImage = [[NSImage alloc] initWithContentsOfFile:icon];
 		if (!sourceImage) {
-			return [NSError ai_errorWithCode:AIErrorCodeNotInputPNGFile description:[NSString stringWithFormat:@"Can not change icon with the file named: (%@)", sourcePath.lastPathComponent]];
+			return [NSError ai_errorWithCode:AIErrorCodeNotInputPNGFile
+								 description:[NSString stringWithFormat:@"Can not change icon with the file named: (%@)", icon.lastPathComponent]];
 		}
 		for (NSString *name in list) {
 			!willSet?:willSet(name);
-			NSString *filePath = [path stringByAppendingPathComponent:name];
+			NSString *filePath = [app.path stringByAppendingPathComponent:name];
 			NSData *data = [NSData dataWithContentsOfFile:filePath];
 			NSImage *image = [[NSImage alloc] initWithData:data];
 			NSSize size = image.size;

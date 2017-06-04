@@ -7,6 +7,7 @@
 //
 
 #import "ITApp.h"
+#import "ITPayload.h"
 
 @interface ITApp ()
 {
@@ -20,15 +21,23 @@
 
 @implementation ITApp
 
++ (instancetype)appPathWithPath:(NSString *)path {
+	if ([path.lastPathComponent isEqualToString:@"Payload"]) {
+		return [[ITPayload alloc] initWithPath:path].app;
+	}
+	
+	if ([path.pathExtension isEqualToString:@"app"]) {
+		return [[ITApp alloc] initWithPath:path];
+	}
+	
+	return nil;
+}
+
 - (ITMobileProvision *)mobileProvision {
 	if (!_mobileProvision) {
 		_mobileProvision = [[ITMobileProvision alloc] initWithPath:[self.path stringByAppendingPathComponent:@"embedded.mobileprovision"]];
 	}
 	return _mobileProvision;
-}
-
-- (ITApp *)app {
-	return self;
 }
 
 - (NSArray<ITPlugin *> *)plugins {
@@ -48,7 +57,7 @@
 }
 
 - (NSArray *)pluginNamesWithFullPath:(BOOL)fullPath {
-	MUPath *pluginPath = [self pathWithAppendingComponment:@"PlugIns"];
+	MUPath *pluginPath = [self pathByAppendingComponment:@"PlugIns"];
 	NSArray *contents = [pluginPath contentComponments];
 	if (!contents) {
 		return nil;

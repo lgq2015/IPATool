@@ -12,8 +12,6 @@
 
 @property (nonatomic, strong, readonly) NSString *path;
 
-@property (nonatomic, strong, readonly) MUPath *superPath;
-
 @property (nonatomic, strong, readonly) NSArray<NSString *> *componments;
 
 @property (nonatomic, strong, readonly) NSString *lastPathComponment;
@@ -24,11 +22,17 @@
 
 @property (nonatomic, assign, readonly, getter=isFolder) BOOL folder;
 
+@property (nonatomic, assign, readonly, getter=isFile) BOOL file;
+
 @property (nonatomic, strong, readonly) NSArray<MUPath *> *contentPathes;
 
 @property (nonatomic, strong, readonly) NSArray<NSString *> *contentComponments;
 
 + (instancetype)tempPath;
+
+- (BOOL)is:(NSString *)fileName;
+
+- (BOOL)isA:(NSString *)pathExtension;
 
 - (instancetype)initWithPath:(NSString *)path;
 - (instancetype)initWithMUPath:(MUPath *)path;
@@ -39,6 +43,8 @@
 
 - (BOOL)containsSubpath:(NSString *)subpath;
 
-- (instancetype)pathWithAppendingComponment:(NSString *)componment;
+- (instancetype)superPath;
+- (instancetype)pathByAppendingComponment:(NSString *)componment;
+- (instancetype)pathByReplacingLastPastComponment:(NSString *)componment;
 
 @end

@@ -15,30 +15,29 @@
 
 @implementation ITPath
 
-- (ITApp *)app {
-	return nil;
+- (BOOL)isIPA {
+	ITPath *payload = [self pathByAppendingComponment:@"Payload"];
+	return payload.exist;
 }
 
-+ (instancetype)packagePathWithPath:(NSString *)path {
-	MUPath *obj = [[MUPath alloc] initWithPath:path];
-	
-	if ([obj.lastPathComponment isEqualToString:@"Payload"]) {
-		return [[ITPayload alloc] initWithPath:path];
-	}
-	
-	if ([obj.pathExtension isEqualToString:@"app"]) {
-		return [[ITApp alloc] initWithPath:path];
-	}
-	
-	if ([obj.pathExtension isEqualToString:@"appex"]) {
-		return [[ITPlugin alloc] initWithPath:path];
-	}
-	
-	if ([obj containsSubpath:@"Payload"]) {
-		return [[ITIPA alloc] initWithPath:path];
-	}
-	
-	return nil;
+- (BOOL)isPayload {
+	return [self is:@"Payload"];
+}
+
+- (BOOL)isApp {
+	return [self isA:@"app"];
+}
+
+- (BOOL)isMobileProvision {
+	return [self isA:@"mobileprovision"];
+}
+
+- (BOOL)isInfoPlist {
+	return [self is:@"Info.plist"];
+}
+
+- (BOOL)isZip {
+	return [self isA:@"ipa"] || [self isA:@"zip"];
 }
 
 @end

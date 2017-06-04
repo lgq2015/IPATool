@@ -11,6 +11,7 @@
 #import "CLArguments+AppIcon.h"
 #import "CLArguments+InfoPlist.h"
 #import "CLArguments+CodeSign.h"
+#import "CLArguments+ZipArchive.h"
 
 @implementation CLArguments (IPATool)
 
@@ -28,6 +29,8 @@
 	[self initAppIcon];
 	[self initInfoPlist];
 	[self initCodeSign];
+	[self initZipArchive];
+	
 }
 
 @end

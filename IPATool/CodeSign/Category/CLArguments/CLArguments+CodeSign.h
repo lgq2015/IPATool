@@ -12,6 +12,7 @@
 #define CLK_CodeSign_MobileProvision	@"mobile-provision"
 #define CLK_CodeSign_Entitlements		@"entitlements"
 #define CLK_CodeSign_Plugin				@"plugin"
+#define CLK_CodeSign_Library			@"library"
 #define CLK_CodeSign_Input				@"input"
 
 @interface CLArguments (CodeSign)

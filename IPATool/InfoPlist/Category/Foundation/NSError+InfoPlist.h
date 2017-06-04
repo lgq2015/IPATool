@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define IPErrorCodeNotFoundInfoPlist	-1
+#define IPErrorCodeShouldInpufPlist		-1
+#define IPErrorCodeNotFoundInfoPlist	-2
 
 @interface NSError (InfoPlist)
 

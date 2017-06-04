@@ -17,10 +17,6 @@
 
 @implementation ITIPA
 
-- (ITApp *)app {
-	return self.payload.app;
-}
-
 - (ITPayload *)payload {
 	if (!_payload) {
 		_payload = [[ITPayload alloc] initWithPath:[self.path stringByAppendingPathComponent:@"Payload"]];

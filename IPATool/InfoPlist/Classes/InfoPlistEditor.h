@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class CLArguments;
+@class CLArguments, ITInfoPlist, InfoPlistReader;
 
 @interface InfoPlistEditor : NSObject
 
-@property (nonatomic, strong, readonly) NSString *path;
+@property (nonatomic, strong, readonly) ITInfoPlist *infoPlist;
 
 @property (nonatomic, strong, readonly) NSString *key;
 
@@ -20,13 +20,15 @@
 
 @property (nonatomic, strong, readonly) NSString *type;
 
-@property (nonatomic, assign, readonly) BOOL pluginEnable;
+- (instancetype)initWithInfoPlist:(ITInfoPlist *)infoPlist
+							  key:(NSString *)key
+							value:(NSString *)value
+							 type:(NSString *)type;
 
-- (instancetype)initWithArguments:(CLArguments *)arguments;
-+ (instancetype)editorWithArguments:(CLArguments *)arguments;
-
-- (instancetype)initWithPath:(NSString *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type pluginEnable:(BOOL)pluginEnable;
-+ (instancetype)editorWIthPath:(NSString *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type pluginEnable:(BOOL)pluginEnable;
++ (instancetype)editorWithInfoPlist:(ITInfoPlist *)infoPlist
+								key:(NSString *)key
+							  value:(NSString *)value
+							   type:(NSString *)type;
 
 - (NSError *)edit;
 

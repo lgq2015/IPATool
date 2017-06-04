@@ -8,19 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@class CLArguments;
+@class CLArguments, ITInfoPlist;
 
 @interface InfoPlistReader : NSObject
 
-@property (nonatomic, strong, readonly) NSString *path;
+@property (nonatomic, strong, readonly) ITInfoPlist *infoPlist;
 
 @property (nonatomic, strong, readonly) NSString *key;
 
-- (instancetype)initWithArguments:(CLArguments *)arguments;
-+ (instancetype)readerWithArguments:(CLArguments *)arguments;
-
-- (instancetype)initWithPath:(NSString *)path key:(NSString *)key;
-+ (instancetype)readerWithPath:(NSString *)path key:(NSString *)key;
+- (instancetype)initWithInfoPlist:(ITInfoPlist *)infoPlist key:(NSString *)key;
++ (instancetype)readerWithInfoPlist:(ITInfoPlist *)infoPlist key:(NSString *)key;
 
 - (id)read;
 

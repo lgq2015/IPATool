@@ -51,7 +51,7 @@
 		if (contents) {
 			NSMutableArray *paths = [NSMutableArray arrayWithCapacity:contents.count];
 			for (NSString *componment in contents) {
-				MUPath *item = [self pathWithAppendingComponment:componment];
+				MUPath *item = [self pathByAppendingComponment:componment];
 				[paths addObject:item];
 			}
 			contents = [paths copy];
@@ -78,7 +78,7 @@
 	return nil;
 }
 
-- (MUPath *)superPath {
+- (instancetype)superPath {
 	if (self.componments.count) {
 		NSMutableArray *componments = [NSMutableArray arrayWithArray:self.componments];
 		[componments removeLastObject];
@@ -103,6 +103,24 @@
 	return NO;
 }
 
+- (BOOL)isFile {
+	BOOL isFolder = NO;
+	if ([[NSFileManager defaultManager] fileExistsAtPath:self.path isDirectory:&isFolder]) {
+		if (!isFolder) {
+			return YES;
+		}
+	}
+	return NO;
+}
+
+- (BOOL)is:(NSString *)fileName {
+	return [self.lastPathComponment.lowercaseString isEqualToString:fileName.lowercaseString];
+}
+
+- (BOOL)isA:(NSString *)pathExtension {
+	return [self.pathExtension.lowercaseString isEqualToString:pathExtension.lowercaseString];
+}
+
 - (BOOL)containsSubpath:(NSString *)subpath {
 	if (!self.isFolder) {
 		return NO;
@@ -111,13 +129,26 @@
 	return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
-- (instancetype)pathWithAppendingComponment:(NSString *)componment {
+- (instancetype)pathByAppendingComponment:(NSString *)componment {
 	NSString *path = [self.path stringByAppendingPathComponent:componment];
 	return [[[self class] alloc] initWithPath:path];
 }
 
+- (instancetype)pathByReplacingLastPastComponment:(NSString *)componment {
+	return [self.superPath pathByAppendingComponment:componment];
+}
+
 - (void)createDirectoryIfNeeds {
-	
+	NSFileManager *fmgr = [NSFileManager defaultManager];
+	NSString *path = self.path;
+	BOOL isDirectory = NO;
+	if ([fmgr fileExistsAtPath:path isDirectory:&isDirectory]) {
+		if (isDirectory) {
+			return;
+		}
+		[fmgr removeItemAtPath:path error:nil];
+	}
+	[fmgr createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
 }
 
 - (void)remove {

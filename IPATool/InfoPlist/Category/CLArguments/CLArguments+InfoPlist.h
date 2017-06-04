@@ -12,7 +12,6 @@
 #define CLK_InfoPlist_Key		@"key"
 #define CLK_InfoPlist_Object	@"obj"
 #define CLK_InfoPlist_Type		@"type"
-#define CLK_InfoPlist_Plugin	@"plugin"
 
 @interface CLArguments (InfoPlist)
 

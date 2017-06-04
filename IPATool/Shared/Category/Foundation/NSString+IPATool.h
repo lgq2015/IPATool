@@ -1,16 +1,14 @@
 //
-//  ITPath.h
+//  NSString+IPATool.h
 //  IPATool
 //
-//  Created by Shuang Wu on 2017/6/2.
+//  Created by 吴双 on 2017/6/3.
 //  Copyright © 2017年 unique. All rights reserved.
 //
 
-#import "MUPath.h"
+#import <Foundation/Foundation.h>
 
-@class ITApp;
-
-@interface ITPath : MUPath
+@interface NSString (IPATool)
 
 @property (nonatomic, assign, readonly) BOOL isIPA;
 
@@ -21,7 +19,5 @@
 @property (nonatomic, assign, readonly) BOOL isMobileProvision;
 
 @property (nonatomic, assign, readonly) BOOL isInfoPlist;
-
-@property (nonatomic, assign, readonly) BOOL isZip;
 
 @end

@@ -10,7 +10,7 @@
 #import "CLArguments+InfoPlist.h"
 #import "InfoPlistBuddy.h"
 
-#import "ITApp.h"
+#import "ITInfoPlist.h"
 
 @interface InfoPlistReader ()
 {
@@ -23,36 +23,17 @@
 
 @implementation InfoPlistReader
 
-- (instancetype)initWithArguments:(CLArguments *)arguments {
+- (instancetype)initWithInfoPlist:(ITInfoPlist *)infoPlist key:(NSString *)key {
 	self = [super init];
 	if (self) {
-		_plistBuddy = [InfoPlistBuddy buddyWithArguments:arguments];
+		_infoPlist = infoPlist;
+		_key = [key copy];
 	}
 	return self;
 }
 
-+ (instancetype)readerWithArguments:(CLArguments *)arguments {
-	return [[self alloc] initWithArguments:arguments];
-}
-
-- (instancetype)initWithPath:(NSString *)path key:(NSString *)key {
-	self = [super init];
-	if (self) {
-		_plistBuddy = [InfoPlistBuddy getBuddyWithPath:path key:key];
-	}
-	return self;
-}
-
-+ (instancetype)readerWithPath:(NSString *)path key:(NSString *)key {
-	return [[self alloc] initWithPath:path key:key];
-}
-
-- (NSString *)path {
-	return self.plistBuddy.path;
-}
-
-- (NSString *)key {
-	return self.plistBuddy.key;
++ (instancetype)readerWithInfoPlist:(ITInfoPlist *)infoPlist key:(NSString *)key {
+	return [[self alloc] initWithInfoPlist:infoPlist key:key];
 }
 
 - (id)read {
@@ -61,12 +42,14 @@
 		return buddy.error;
 	}
 	id res = buddy.taskResult;
-	if ([res isKindOfClass:[NSString class]]) {
-		ITApp *app = [ITPath packagePathWithPath:[self.path stringByDeletingLastPathComponent]].app;
-		ITBinary *binary = app.binary;
-		NSLog(@"%@", binary.loadedUserLibrary);
-	}
 	return res;
+}
+
+- (InfoPlistBuddy *)plistBuddy {
+	if (!_plistBuddy) {
+		_plistBuddy = [InfoPlistBuddy getBuddyWithPath:self.plistBuddy.path key:self.key];
+	}
+	return _plistBuddy;
 }
 
 @end

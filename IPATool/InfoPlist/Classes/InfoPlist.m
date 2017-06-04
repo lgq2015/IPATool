@@ -11,25 +11,19 @@
 #import "InfoPlistReader.h"
 #import "InfoPlistEditor.h"
 
+#import "ITInfoPlist.h"
+#import "ITApp.h"
+
 @implementation InfoPlist
 
-+ (id)get:(CLArguments *)arguments {
-	InfoPlistReader *reader = [InfoPlistReader readerWithArguments:arguments];
++ (id)getInfoPlist:(ITInfoPlist *)infoPlist key:(NSString *)key {
+	InfoPlistReader *reader = [InfoPlistReader readerWithInfoPlist:infoPlist key:key];
 	return [reader read];
+
 }
 
-+ (id)set:(CLArguments *)arguments {
-	InfoPlistEditor *editor = [InfoPlistEditor editorWithArguments:arguments];
-	return [editor edit];
-}
-
-+ (id)getWithPath:(NSString *)path key:(NSString *)key {
-	InfoPlistReader *reader = [InfoPlistReader readerWithPath:path key:key];
-	return [reader read];
-}
-
-+ (id)setWithPath:(NSString *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type pluginEnable:(BOOL)pluginEnable {
-	InfoPlistEditor *editor = [InfoPlistEditor editorWIthPath:path key:key value:value type:type pluginEnable:pluginEnable];
++ (id)setInfoPlist:(ITInfoPlist *)infoPlist key:(NSString *)key value:(NSString *)value type:(NSString *)type {
+	InfoPlistEditor *editor = [InfoPlistEditor editorWithInfoPlist:infoPlist key:key value:value type:type];
 	return [editor edit];
 }
 

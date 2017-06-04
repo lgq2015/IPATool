@@ -9,6 +9,13 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#define OptionsHasFlag(options, flag) (((options) & (flag)) == (flag))
+#define SharedFileManager				[NSFileManager defaultManager]
+
+#define OptionsHasFlag(options, flag)	(((options) & (flag)) == (flag))
+
+#import "NSFileManager+IPATool.h"
+#import "NSError+IPATool.h"
+#import "NSArray+IPATool.h"
+#import "NSString+IPATool.h"
 
 #endif /* PrefixHeader_pch */

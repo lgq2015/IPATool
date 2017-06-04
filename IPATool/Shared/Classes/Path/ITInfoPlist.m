@@ -23,12 +23,4 @@
 	return nil;
 }
 
-- (ITApp *)app {
-	MUPath *path = self.superPath;
-	if ([path.pathExtension isEqualToString:@"app"]) {
-		return [[ITApp alloc] initWithMUPath:path];
-	}
-	return self.plugin.app;
-}
-
 @end

@@ -9,28 +9,38 @@
 #import "IPAMain.h"
 #import "AppIconConst.h"
 
-@class CLArguments;
+@class CLArguments, ITApp;
 
 typedef void(^AIOnSetIcon)(NSString *iconName);
 
 @interface AppIcon : IPAMain
 
 /**
- *	Get icon files
+ *	Get icon file name
  *
- *	@return NSArray/NSError
+ *	@param app		ITApp
+ *	@param device	Device options
+ *	@param scale	Scale options
+ *	@return			NSError or NSArray
  */
++ (id)get:(ITApp *)app device:(AIDeviceOptions)device scale:(AIScaleOptions)scale;
 
-+ (id)get:(CLArguments *)arguments;
-
-+ (id)get:(NSString *)appPath device:(AIDeviceOptions)device scale:(AIScaleOptions)scale;
-
-/** 
- *	Set icon files
+/**
+ *	Set Icon
  *
- *	@return NSError
+ *	@param app		ITApp
+ *	@param device	Device options
+ *	@param scale	Scale options
+ *	@param icon		Icon file path
+ *	@param willSet	Block, call when will set the icon file
+ *	@param didSet	Block, call when did setted the icon file
+ *	@return			NSError or nil
  */
-
-+ (NSError *)set:(CLArguments *)arguments willSet:(AIOnSetIcon)willSet didSet:(AIOnSetIcon)didSet;
++ (NSError *)set:(ITApp *)app
+		  device:(AIDeviceOptions)device
+		   scale:(AIScaleOptions)scale
+		withIcon:(NSString *)icon
+		 willSet:(AIOnSetIcon)willSet
+		  didSet:(AIOnSetIcon)didSet;
 
 @end

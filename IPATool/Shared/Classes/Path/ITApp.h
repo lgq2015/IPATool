@@ -16,4 +16,6 @@
 
 @property (nonatomic, strong, readonly) NSArray<ITPlugin *> *plugins;
 
++ (instancetype)appPathWithPath:(NSString *)path;
+
 @end

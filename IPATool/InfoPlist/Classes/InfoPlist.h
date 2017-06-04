@@ -8,16 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class CLArguments;
+@class CLArguments, ITInfoPlist, ITApp;
 
 @interface InfoPlist : NSObject
 
-+ (id)get:(CLArguments *)arguments;
++ (id)getInfoPlist:(ITInfoPlist *)path key:(NSString *)key;
 
-+ (id)set:(CLArguments *)arguments;
-
-+ (id)getWithPath:(NSString *)path key:(NSString *)key;
-
-+ (id)setWithPath:(NSString *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type pluginEnable:(BOOL)pluginEnable;
++ (id)setInfoPlist:(ITInfoPlist *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type;
 
 @end

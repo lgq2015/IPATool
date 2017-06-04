@@ -8,6 +8,9 @@
 
 #import "CLArguments+InfoPlist.h"
 #import "InfoPlist.h"
+#import "NSString+IPATool.h"
+#import "ITIPA.h"
+#import "NSError+InfoPlist.h"
 
 @implementation CLArguments (InfoPlist)
 
@@ -22,7 +25,18 @@
 	[self setKey:CLK_InfoPlist_Input abbr:@"i" optional:NO example:@"/path/to/file" explain:@"You can type one of: Payload/*.app/info.plist" forCommand:command];
 	[self setKey:CLK_InfoPlist_Key abbr:@"k" optional:NO example:@"CFBundleIdentifier or CFBundleIcons/CFBundlePrimaryIcon" explain:@"The key in info.plist." forCommand:command];
 	[self setCommand:command task:^NSError *(CLArguments *arguments) {
-		id res = [InfoPlist get:arguments];
+		NSString *path = [arguments fullPathValueForKey:CLK_InfoPlist_Input];
+		NSString *key = [arguments stringValueForKey:CLK_InfoPlist_Key];
+		
+		id res = nil;
+		
+		if (!path.isInfoPlist) {
+			res = [NSError ip_errorWithCode:IPErrorCodeShouldInpufPlist description:@"Can not read this file."];
+		} else {
+			ITInfoPlist *infoPlist = [[ITInfoPlist alloc] initWithPath:path];
+			res = [InfoPlist getInfoPlist:infoPlist key:key];
+		}
+		
 		if ([res isKindOfClass:[NSError class]]) {
 			NSError *error = res;
 			[error ipa_println];
@@ -42,9 +56,21 @@
 	[self setKey:CLK_InfoPlist_Key abbr:@"k" optional:NO example:@"CFBundleIdentifier or CFBundleIcons/CFBundlePrimaryIcon" explain:@"The key in info.plist." forCommand:command];
 	[self setKey:CLK_InfoPlist_Object abbr:@"o" optional:YES example:@"com.unique.xxx" explain:@"The new value" forCommand:command];
 	[self setOptionalKey:CLK_InfoPlist_Type abbr:@"t" defaultValue:@"string" example:@"a type" explain:@"One of \"string/number/bool/dictionary/array\"" forCommand:command];
-	[self setFlag:CLK_InfoPlist_Plugin abbr:@"p" explain:@"Auto changing the value's prefix matched in plugin, If you change the bundle identifier, you should type it to change plugin's bundle identifier prefix, otherwise the app will be invalid after code sign." forCommand:command];
+	
 	[self setCommand:command task:^NSError *(CLArguments *arguments) {
-		id res = [InfoPlist set:arguments];
+		NSString *path = [arguments fullPathValueForKey:CLK_InfoPlist_Input];
+		NSString *key = [arguments stringValueForKey:CLK_InfoPlist_Key];
+		NSString *value = [arguments stringValueForKey:CLK_InfoPlist_Object];
+		NSString *type = [arguments stringValueForKey:CLK_InfoPlist_Type];
+		id res = nil;
+		
+		if (!path.isInfoPlist) {
+			res = [NSError ip_errorWithCode:IPErrorCodeShouldInpufPlist description:@"Can not edit this file."];
+		} else {
+			ITInfoPlist *infoPlist = [[ITInfoPlist alloc] initWithPath:path];
+			res = [InfoPlist setInfoPlist:infoPlist key:key value:value type:type];
+		}
+		
 		if ([res isKindOfClass:[NSError class]]) {
 			NSError *error = res;
 			[error ipa_println];

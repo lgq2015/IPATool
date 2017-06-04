@@ -64,6 +64,14 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "-h"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "zip -i &quot;/Users/Unique/Desktop/Xiaomi/Payload/tvremote.app&quot; -o &quot;/Users/Unique/Desktop/Xiaomi/xiaomi.ipa&quot;"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "unzip -i &quot;/Users/Unique/Desktop/Xiaomi/xiaomi.ipa&quot; -o &quot;/Users/Unique/Desktop/Xiaomi/temp_app/tvremote.app&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

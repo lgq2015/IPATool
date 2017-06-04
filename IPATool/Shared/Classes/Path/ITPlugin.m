@@ -15,14 +15,6 @@
 
 @implementation ITPlugin
 
-- (ITApp *)app {
-	MUPath *path = self.superPath.superPath;
-	if ([path.pathExtension isEqualToString:@"app"]) {
-		return [[ITApp alloc] initWithMUPath:path];
-	}
-	return nil;
-}
-
 - (ITPlugin *)plugins {
 	return nil;
 }

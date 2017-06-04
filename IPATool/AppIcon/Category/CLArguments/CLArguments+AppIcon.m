@@ -8,9 +8,49 @@
 
 #import "CLArguments+AppIcon.h"
 #import "AppIcon.h"
-#import "NSError+IPATool.h"
+#import "NSError+AppIcon.h"
+#import "NSString+IPATool.h"
+#import "ITApp.h"
 
 #define FileExist(file) [[NSFileManager defaultManager] fileExistsAtPath:file]
+
+static AIScaleOptions AIScaleOptionsInArguments(CLArguments *arguments) {
+	AIScaleOptions scaleOptions = AIScaleNone;
+	NSString *scale = [arguments stringValueForKey:CLK_AppIcon_Scale];
+	if (scale) {
+		if ([scale containsString:@"1"]) {
+			scaleOptions |= AIScale1;
+		}
+		if ([scale containsString:@"2"]) {
+			scaleOptions |= AIScale2;
+		}
+		if ([scale containsString:@"3"]) {
+			scaleOptions |= AIScale3;
+		}
+		if ([scale isEqualToString:@"all"]) {
+			scaleOptions |= AIScaleAll;
+		}
+	} else {
+		scaleOptions = AIScaleAll;
+	}
+	return scaleOptions;
+}
+
+static AIDeviceOptions AIDeviceOptionsInArguments(CLArguments *arguments) {
+	AIDeviceOptions deviceOptions = AIDeviceNone;
+	NSString *input = [arguments stringValueForKey:CLK_AppIcon_Device];
+	if (input) {
+		if ([input isEqualToString:@"iPhone"]) {
+			deviceOptions = AIDevicePhone;
+		}
+		if ([input isEqualToString:@"iPad"]) {
+			deviceOptions = AIDevicePad;
+		}
+	} else {
+		deviceOptions = AIDeviceAll;
+	}
+	return deviceOptions;
+}
 
 @implementation CLArguments (AppIcon)
 
@@ -26,7 +66,18 @@
 	[self setKey:CLK_AppIcon_Device abbr:@"d" optional:YES example:@"One of all(default)/iPhone/iPad" explain:@"Match the icon for this device." forCommand:command];
 	[self setKey:CLK_AppIcon_Scale abbr:@"s" optional:YES example:@"N of 1/2/3 or all(default)" explain:@"Match the icon for this screen scale. If you want to Match two scale like \"All Retina\", you can input 23 for 2 scale and 3 scale." forCommand:command];
 	[self setCommand:command task:^NSError *(CLArguments *arguments) {
-		id res = [AppIcon get:arguments];
+		
+		NSString *path = [arguments fullPathValueForKey:CLK_AppIcon_AppPath];
+		
+		id res = nil;
+		
+		if (!path.isApp) {
+			res = [NSError ai_errorWithCode:AIErrorCodeAppIsNotPackage description:@"Can not read this package."];
+		} else {
+			ITApp *app = [[ITApp alloc] initWithPath:path];
+			res = [AppIcon get:app device:AIDeviceOptionsInArguments(arguments) scale:AIScaleOptionsInArguments(arguments)];
+		}
+		
 		if ([res isKindOfClass:[NSArray class]]) {
 			NSArray *icons = res;
 			for (NSString *file in icons) {
@@ -51,9 +102,24 @@
 	[self setKey:CLK_AppIcon_Scale abbr:@"s" optional:YES example:@"N of 1/2/3 or all(default)" explain:@"Match the icon for this screen scale. If you want to Match two scale like \"All Retina\", you can input 23 for 2 scale and 3 scale." forCommand:command];
 	[self setKey:CLK_AppIcon_Icon abbr:@"i" optional:NO example:@"/path/to/icon.png" explain:@"A path to a .png file." forCommand:command];
 	[self setCommand:command task:^NSError *(CLArguments *arguments) {
-		id res = [AppIcon set:arguments willSet:^(NSString *iconName) {
-			CLVerbose(arguments, "Set Icon: %s\n", iconName.UTF8String);
-		} didSet:nil];
+		NSString *path = [arguments fullPathValueForKey:CLK_AppIcon_AppPath];
+		NSString *icon = [arguments fullPathValueForKey:CLK_AppIcon_Icon];
+		
+		id res = nil;
+		
+		if (!path.isApp) {
+			res = [NSError ai_errorWithCode:AIErrorCodeAppIsNotPackage description:@"Can not read this package."];
+		} else {
+			ITApp *app = [[ITApp alloc] initWithPath:path];
+			res = [AppIcon set:app
+						device:AIDeviceOptionsInArguments(arguments)
+						 scale:AIScaleOptionsInArguments(arguments)
+					  withIcon:icon
+					   willSet:^(NSString *iconName) {
+						   CLVerbose(arguments, "Set icon: %s\n", iconName.UTF8String);
+					   } didSet:nil];
+		}
+		
 		if ([res isKindOfClass:[NSError class]]) {
 			NSError *error = res;
 			[error ipa_println];

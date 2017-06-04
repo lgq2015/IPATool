@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ITPayload.h"
 
-@class CLArguments;
+@class CSSigner;
 
 @interface CodeSign : NSObject
 
-+ (id)signWithArguments:(CLArguments *)arguments;
++ (id)signApp:(ITApp *)app withSigner:(CSSigner *)signer;
 
-+ (id)signFile:(NSString *)file withCertificate:(NSString *)certificateName mobileProvision:(NSString *)mobileProvisionPath;
-
-+ (id)signFile:(NSString *)file withCertificate:(NSString *)certificateName mobileProvision:(NSString *)mobileProvisionPath entitlements:(NSString *)entitlementsPath;
++ (id)signFile:(ITPath *)file withSigner:(CSSigner *)signer;
 
 @end

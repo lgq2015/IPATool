@@ -11,4 +11,6 @@
 
 @interface ITPayload : ITPath
 
+@property (nonatomic, strong, readonly) ITApp *app;
+
 @end

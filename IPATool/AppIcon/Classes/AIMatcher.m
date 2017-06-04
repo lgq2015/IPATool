@@ -11,48 +11,11 @@
 #import "AIIconName.h"
 #import "AIIconNameSet.h"
 #import "NSError+AppIcon.h"
+#import "NSString+IPATool.h"
 
-static AIScaleOptions AIScaleOptionsInArguments(CLArguments *arguments) {
-	AIScaleOptions scaleOptions = AIScaleNone;
-	NSString *scale = [arguments stringValueForKey:CLK_AppIcon_Scale];
-	if (scale) {
-		if ([scale containsString:@"1"]) {
-			scaleOptions |= AIScale1;
-		}
-		if ([scale containsString:@"2"]) {
-			scaleOptions |= AIScale2;
-		}
-		if ([scale containsString:@"3"]) {
-			scaleOptions |= AIScale3;
-		}
-		if ([scale isEqualToString:@"all"]) {
-			scaleOptions |= AIScaleAll;
-		}
-	} else {
-		scaleOptions = AIScaleAll;
-	}
-	return scaleOptions;
-}
-
-static AIDeviceOptions AIDeviceOptionsInArguments(CLArguments *arguments) {
-	AIDeviceOptions deviceOptions = AIDeviceNone;
-	NSString *input = [arguments stringValueForKey:CLK_AppIcon_Device];
-	if (input) {
-		if ([input isEqualToString:@"iPhone"]) {
-			deviceOptions = AIDevicePhone;
-		}
-		if ([input isEqualToString:@"iPad"]) {
-			deviceOptions = AIDevicePad;
-		}
-	} else {
-		deviceOptions = AIDeviceAll;
-	}
-	return deviceOptions;
-}
-
-static NSString *AIAppPathInArguments(CLArguments *arguments) {
-	return [arguments fullPathValueForKey:CLK_AppIcon_AppPath];
-}
+#import "ITIPA.h"
+#import "ITPayload.h"
+#import "ITApp.h"
 
 @interface AIMatcher ()
 {
@@ -63,20 +26,6 @@ static NSString *AIAppPathInArguments(CLArguments *arguments) {
 @end
 
 @implementation AIMatcher
-
-- (instancetype)initWithArguments:(CLArguments *)arguments {
-	self = [super init];
-	if (self) {
-		_appPath = AIAppPathInArguments(arguments).copy;
-		_scaleOptions = AIScaleOptionsInArguments(arguments);
-		_deviceOptions = AIDeviceOptionsInArguments(arguments);
-	}
-	return self;
-}
-
-+ (instancetype)matcherWithArguments:(CLArguments *)arguments {
-	return [[self alloc] initWithArguments:arguments];
-}
 
 - (instancetype)initWithAppPath:(NSString *)appPath scale:(AIScaleOptions)scale device:(AIDeviceOptions)device {
 	self = [super init];
@@ -115,7 +64,6 @@ static NSString *AIAppPathInArguments(CLArguments *arguments) {
 }
 
 - (id)match {
-	NSFileManager *SharedFileManager = [NSFileManager defaultManager];
 	NSString *path = self.appPath;
 	BOOL isDirectory = NO;
 	if (![SharedFileManager fileExistsAtPath:path isDirectory:&isDirectory]) {

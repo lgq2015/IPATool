@@ -23,9 +23,6 @@
 @property (nonatomic, assign, readonly, getter=isMatchPad) BOOL matchPad;
 @property (nonatomic, assign, readonly, getter=isMatchAllDevice) BOOL matchAllDevice;
 
-- (instancetype)initWithArguments:(CLArguments *)arguments;
-+ (instancetype)matcherWithArguments:(CLArguments *)arguments;
-
 - (instancetype)initWithAppPath:(NSString *)appPath scale:(AIScaleOptions)scale device:(AIDeviceOptions)device;
 + (instancetype)matcherWithAppPath:(NSString *)appPath scale:(AIScaleOptions)scale device:(AIDeviceOptions)device;
 
