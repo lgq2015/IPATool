@@ -26,7 +26,7 @@
 	return error;
 }
 
-+ (NSError *)zipPayload:(ITPayload *)payload to:(ITPath *)to {
++ (NSError *)zipPayload:(ITPayload *)payload to:(ITZip *)to {
 	NSError *error = [self cd:payload.superPath.path zip:@"Payload" to:to.lastPathComponment];
 	if (!error) {
 		MUPath *path = [payload pathByReplacingLastPastComponment:to.lastPathComponment];
@@ -37,7 +37,7 @@
 	return error;
 }
 
-+ (NSError *)zipApp:(ITApp *)app to:(ITPath *)to {
++ (NSError *)zipApp:(ITApp *)app to:(ITZip *)to {
 	ITPath *tempPath = [ITPath tempPath];
 	ITPayload *payload = [[ITPayload alloc] initWithMUPath:[tempPath pathByAppendingComponment:@"Payload"]];
 	[payload createDirectoryIfNeeds];
