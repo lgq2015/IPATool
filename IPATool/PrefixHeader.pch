@@ -18,4 +18,6 @@
 #import "NSArray+IPATool.h"
 #import "NSString+IPATool.h"
 
+#import "IPAResult.h"
+
 #endif /* PrefixHeader_pch */

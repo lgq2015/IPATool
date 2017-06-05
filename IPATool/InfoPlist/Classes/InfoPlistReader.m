@@ -47,7 +47,7 @@
 
 - (InfoPlistBuddy *)plistBuddy {
 	if (!_plistBuddy) {
-		_plistBuddy = [InfoPlistBuddy getBuddyWithPath:self.plistBuddy.path key:self.key];
+		_plistBuddy = [InfoPlistBuddy getBuddyWithPath:self.infoPlist.path key:self.key];
 	}
 	return _plistBuddy;
 }

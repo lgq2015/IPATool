@@ -12,8 +12,12 @@
 
 @interface InfoPlist : NSObject
 
-+ (id)getInfoPlist:(ITInfoPlist *)path key:(NSString *)key;
++ (IPAResult *)getInfoPlist:(ITInfoPlist *)path key:(NSString *)key;
 
-+ (id)setInfoPlist:(ITInfoPlist *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type;
++ (IPAResult *)setInfoPlist:(ITInfoPlist *)path key:(NSString *)key value:(NSString *)value type:(NSString *)type;
+
++ (IPAResult *)setApp:(ITApp *)app bundleIdentifier:(NSString *)bundleIdentifier pluginEnable:(BOOL)pluginEnable;
+
++ (IPAResult *)setApp:(ITApp *)app bundleDisplayName:(NSString *)bundleDisplayName;
 
 @end

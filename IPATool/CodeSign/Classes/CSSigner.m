@@ -55,8 +55,12 @@
 		return [NSError cs_errorWithCode:CS_Error_CanNotSign description:@"The certificate name is (null)."];
 	}
 	
-	if (self.mobileProvisionPath.length && ![SharedFileManager fileExistsAtPath:self.mobileProvisionPath]) {
+	if (![SharedFileManager fileExistsAtPath:self.mobileProvisionPath]) {
 		return [NSError cs_errorWithCode:CS_Error_CanNotSign description:@"The mobile provision is not exist."];
+	}
+	
+	if (![SharedFileManager fileExistsAtPath:self.entitlementsPath]) {
+		return [NSError cs_errorWithCode:CS_Error_CanNotSign description:@"The entitlements is not exist."];
 	}
 	
 	return nil;
@@ -81,7 +85,7 @@
 
 - (NSError *)signWithMobileProvisionAndEntitlements:(ITPath *)file {
 	CLVerbose([CLArguments sharedInstance], "Code sign %s with entitlements ...\n", file.lastPathComponment.UTF8String);
-	id res =  CLLaunchWithArguments(@[@"/usr/bin/codesign",
+	id res = CLLaunchWithArguments(@[@"/usr/bin/codesign",
 									  @"-vvv", @"-fs",
 									  self.certificateName,
 									  @"--entitlements",
@@ -97,7 +101,12 @@
 
 - (NSError *)signWithoutMobileProvisionAndEntitlements:(ITPath *)file {
 	CLVerbose([CLArguments sharedInstance], "Code sign %s ...\n", file.lastPathComponment.UTF8String);
-	return CLLaunchWithArguments(@[@"/usr/bin/codesign", @"-fs", self.certificateName, @"--no-strict", file.path]);
+	id res =  CLLaunchWithArguments(@[@"/usr/bin/codesign", @"-fs", self.certificateName, @"--no-strict", file.path]);
+	if ([res isKindOfClass:[NSError class]]) {
+		return res;
+	} else {
+		return nil;
+	}
 }
 
 @end

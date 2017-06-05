@@ -13,46 +13,36 @@
 
 @implementation CodeSign
 
-+ (id)signFile:(ITPath *)file withSigner:(CSSigner *)signer {
-	return [signer sign:file];
++ (IPAResult *)signFile:(ITPath *)file withSigner:(CSSigner *)signer {
+	return IPAFailed([signer sign:file]);
 }
 
-+ (id)signApp:(ITApp *)app withSigner:(CSSigner *)signer {
-	
-	id res = nil;
++ (IPAResult *)signApp:(ITApp *)app withSigner:(CSSigner *)signer {
+	IPADefineResult;
 	
 	for (ITPlugin *plugin in app.plugins) {
-		id signRes = [signer sign:plugin];
-		if ([signRes isKindOfClass:[NSError class]]) {
-			return signRes;
+		NSError *error = [signer sign:plugin];
+		if (error) {
+			IPAMarkError(error);
+			IPAReturnResult;
 		}
 	}
 	
-	
-	res = [signer sign:app.binary];
-	if ([res isKindOfClass:[NSError class]]) {
-		return res;
-	}
-	
-	
-	res = [self _signBinary:app.binary withSigner:signer signLoadedLibrary:YES];
-	if ([res isKindOfClass:[NSError class]]) {
-		return res;
-	}
+	IPAReturnIfFailed([self _signBinary:app.binary withSigner:signer signLoadedLibrary:YES]);
 	
 	//	Copy mobile provision to app
 	NSFileManager *fmgr = [NSFileManager defaultManager];
+	NSError *error = nil;
 	[fmgr removeItemAtPath:app.mobileProvision.path error:nil];
-	[fmgr copyItemAtPath:signer.mobileProvisionPath toPath:app.mobileProvision.path error:&res];
-	
-	return res;
+	[fmgr copyItemAtPath:signer.mobileProvisionPath toPath:app.mobileProvision.path error:&error];
+	return IPAReturn(error);
 }
 
-+ (id)_signPlugin:(ITPlugin *)plugin withSigner:(CSSigner *)signer {
++ (IPAResult *)_signPlugin:(ITPlugin *)plugin withSigner:(CSSigner *)signer {
 	return [self signFile:plugin withSigner:signer];
 }
 
-+ (id)_signBinary:(ITBinary *)binary withSigner:(CSSigner *)signer signLoadedLibrary:(BOOL)signLoadedLibrary {
++ (IPAResult *)_signBinary:(ITBinary *)binary withSigner:(CSSigner *)signer signLoadedLibrary:(BOOL)signLoadedLibrary {
 	id res = nil;
 	if (signLoadedLibrary) {
 		for (ITBinary *library in binary.loadedUserLibrary) {

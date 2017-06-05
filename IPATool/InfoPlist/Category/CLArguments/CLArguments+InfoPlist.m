@@ -25,26 +25,34 @@
 	[self setKey:CLK_InfoPlist_Input abbr:@"i" optional:NO example:@"/path/to/file" explain:@"You can type one of: Payload/*.app/info.plist" forCommand:command];
 	[self setKey:CLK_InfoPlist_Key abbr:@"k" optional:NO example:@"CFBundleIdentifier or CFBundleIcons/CFBundlePrimaryIcon" explain:@"The key in info.plist." forCommand:command];
 	[self setCommand:command task:^NSError *(CLArguments *arguments) {
+		IPADefineResult;
 		NSString *path = [arguments fullPathValueForKey:CLK_InfoPlist_Input];
 		NSString *key = [arguments stringValueForKey:CLK_InfoPlist_Key];
 		
-		id res = nil;
-		
-		if (!path.isInfoPlist) {
-			res = [NSError ip_errorWithCode:IPErrorCodeShouldInpufPlist description:@"Can not read this file."];
-		} else {
-			ITInfoPlist *infoPlist = [[ITInfoPlist alloc] initWithPath:path];
-			res = [InfoPlist getInfoPlist:infoPlist key:key];
+		if (path.isIPA) {
+			path = [[ITIPA alloc] initWithPath:path].payload.app.infoPlist.path;
+		}
+		else if (path.isPayload) {
+			path = [[ITPayload alloc] initWithPath:path].app.infoPlist.path;
+		}
+		else if (path.isApp) {
+			path = [[ITApp alloc] initWithPath:path].infoPlist.path;
 		}
 		
-		if ([res isKindOfClass:[NSError class]]) {
-			NSError *error = res;
+		if (!path.isInfoPlist) {
+			IPAMarkError([NSError ip_errorWithCode:IPErrorCodeShouldInpufPlist description:@"Can not read this file."])
+		} else {
+			ITInfoPlist *infoPlist = [[ITInfoPlist alloc] initWithPath:path];
+			IPAMark([InfoPlist getInfoPlist:infoPlist key:key]);
+		}
+		
+		if (IPAIsFailed) {
+			NSError *error = IPAResultError;
 			[error ipa_println];
 			return error;
 		}
 		
-		NSString *string = res;
-		printf("%s\n", string.UTF8String);
+		printf("%s\n", IPAResultOutput.UTF8String);
 		return nil;
 	}];
 }
@@ -58,21 +66,46 @@
 	[self setOptionalKey:CLK_InfoPlist_Type abbr:@"t" defaultValue:@"string" example:@"a type" explain:@"One of \"string/number/bool/dictionary/array\"" forCommand:command];
 	
 	[self setCommand:command task:^NSError *(CLArguments *arguments) {
+		IPADefineResult;
 		NSString *path = [arguments fullPathValueForKey:CLK_InfoPlist_Input];
 		NSString *key = [arguments stringValueForKey:CLK_InfoPlist_Key];
 		NSString *value = [arguments stringValueForKey:CLK_InfoPlist_Object];
 		NSString *type = [arguments stringValueForKey:CLK_InfoPlist_Type];
-		id res = nil;
 		
-		if (!path.isInfoPlist) {
-			res = [NSError ip_errorWithCode:IPErrorCodeShouldInpufPlist description:@"Can not edit this file."];
+		if ((path.isIPA || path.isPayload || path.isApp) && [key isEqualToString:@"CFBundleIdentifier"]) {
+			if (path.isIPA) {
+				path = [[ITIPA alloc] initWithPath:path].payload.app.path;
+			}
+			else if (path.isPayload) {
+				path = [[ITPayload alloc] initWithPath:path].app.path;
+			}
+			
+			if (path.isApp) {
+				ITApp *app = [[ITApp alloc] initWithPath:path];
+				IPAMark([InfoPlist setApp:app bundleIdentifier:value pluginEnable:YES]);
+			}
 		} else {
-			ITInfoPlist *infoPlist = [[ITInfoPlist alloc] initWithPath:path];
-			res = [InfoPlist setInfoPlist:infoPlist key:key value:value type:type];
+			if (path.isIPA) {
+				path = [[ITIPA alloc] initWithPath:path].payload.app.path;
+			}
+			else if (path.isPayload) {
+				path = [[ITPayload alloc] initWithPath:path].app.path;
+			}
+			else if (path.isApp) {
+				path = [[ITApp alloc] initWithPath:path].infoPlist.path;
+			}
+			
+			if (!path.isInfoPlist) {
+				IPAMark([NSError ip_errorWithCode:IPErrorCodeShouldInpufPlist description:@"Can not edit this file."]);
+			} else {
+				ITInfoPlist *infoPlist = [[ITInfoPlist alloc] initWithPath:path];
+				IPAMark([InfoPlist setInfoPlist:infoPlist key:key value:value type:type]);
+			}
+			
 		}
 		
-		if ([res isKindOfClass:[NSError class]]) {
-			NSError *error = res;
+		if (IPAIsFailed) {
+			NSError *error = IPAResultError;
 			[error ipa_println];
 			return error;
 		}

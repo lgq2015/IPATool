@@ -20,4 +20,6 @@
 
 @property (nonatomic, assign, readonly) BOOL isInfoPlist;
 
+@property (nonatomic, assign, readonly) BOOL isZip;
+
 @end

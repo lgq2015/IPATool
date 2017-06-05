@@ -31,4 +31,8 @@
 	return [self.lastPathComponent isEqualToString:@"Info.plist"];
 }
 
+- (BOOL)isZip {
+	return [self.pathExtension isEqualToString:@"ipa"] || [self.pathExtension isEqualToString:@"zip"];
+}
+
 @end

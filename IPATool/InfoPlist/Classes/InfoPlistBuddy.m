@@ -52,7 +52,7 @@ static id IPGetInfoPlistPathInPath(NSString *path) {
 - (instancetype)initWithPath:(NSString *)path format:(NSString *)format key:(NSString *)key type:(NSString *)type value:(NSString *)value {
 	self = [super init];
 	if (self) {
-		_key = [key copy];
+		_key = [key stringByReplacingOccurrencesOfString:@"/" withString:@":"];
 		if (![_key hasPrefix:@":"]) {
 			_key = [@":" stringByAppendingString:_key];
 		}

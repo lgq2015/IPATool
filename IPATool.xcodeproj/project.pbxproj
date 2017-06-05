@@ -20,6 +20,7 @@
 		6D04F6E71EE147A4007D48F5 /* ITMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6E61EE147A4007D48F5 /* ITMobileProvision.m */; };
 		6D04F6ED1EE14A67007D48F5 /* MUEntitlements.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6EA1EE14A67007D48F5 /* MUEntitlements.m */; };
 		6D04F6EE1EE14A67007D48F5 /* MUMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6EC1EE14A67007D48F5 /* MUMobileProvision.m */; };
+		6D64B5391EE506E800CF54BB /* IPAResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D64B5381EE506E800CF54BB /* IPAResult.m */; };
 		6D66270A1EE15A8A0036E136 /* NSError+CodeSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6627091EE15A8A0036E136 /* NSError+CodeSign.m */; };
 		6D6627131EE16FAB0036E136 /* ITPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6627121EE16FAB0036E136 /* ITPackage.m */; };
 		6DAEED901EDE6B3000DB04F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAEED8F1EDE6B3000DB04F2 /* main.m */; };
@@ -93,6 +94,8 @@
 		6D04F6EA1EE14A67007D48F5 /* MUEntitlements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUEntitlements.m; sourceTree = "<group>"; };
 		6D04F6EB1EE14A67007D48F5 /* MUMobileProvision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUMobileProvision.h; sourceTree = "<group>"; };
 		6D04F6EC1EE14A67007D48F5 /* MUMobileProvision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUMobileProvision.m; sourceTree = "<group>"; };
+		6D64B5371EE506E800CF54BB /* IPAResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAResult.h; sourceTree = "<group>"; };
+		6D64B5381EE506E800CF54BB /* IPAResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPAResult.m; sourceTree = "<group>"; };
 		6D6627081EE15A8A0036E136 /* NSError+CodeSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+CodeSign.h"; sourceTree = "<group>"; };
 		6D6627091EE15A8A0036E136 /* NSError+CodeSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+CodeSign.m"; sourceTree = "<group>"; };
 		6D6627111EE16FAB0036E136 /* ITPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITPackage.h; sourceTree = "<group>"; };
@@ -444,6 +447,8 @@
 				6DAEEDDC1EDEA23400DB04F2 /* IPACommandTask.m */,
 				6DAEEDDE1EDEA27900DB04F2 /* IPAMain.h */,
 				6DAEEDDF1EDEA27900DB04F2 /* IPAMain.m */,
+				6D64B5371EE506E800CF54BB /* IPAResult.h */,
+				6D64B5381EE506E800CF54BB /* IPAResult.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -659,6 +664,7 @@
 				6D04F6C61EE0FFAC007D48F5 /* ITIPA.m in Sources */,
 				6D04F6C91EE10A55007D48F5 /* ITInfoPlist.m in Sources */,
 				6DAEEDD61EDE980200DB04F2 /* AIIconNameSet.m in Sources */,
+				6D64B5391EE506E800CF54BB /* IPAResult.m in Sources */,
 				6DAEEDDD1EDEA23400DB04F2 /* IPACommandTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

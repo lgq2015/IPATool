@@ -93,7 +93,7 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "icon-set -a &quot;/Users/wushuang/Desktop/1.2.3/Payload/kalypsomedia.app&quot; --verbose -i &quot;/Users/wushuang/Documents/repo/WeChatPlugin_Pro/Resource/Packing/WeChatIcon/&#x7c89;&#x8272;.png&quot;"
+            argument = "icon-set -a &quot;/Users/wushuang/Desktop/1.2.3/Payload/kalypsomedia.app&quot; --verbose -i &quot;/Users/wushuang/Pictures/IMG_1479.JPG&quot;"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
@@ -105,15 +105,23 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "info-set -i &quot;/Users/wushuang/Desktop/Payload 2/WeChat.app&quot; -k &quot;CFBundleIdentifier&quot; -o &quot;com.tencent.xin.unique.xxx&quot; -p"
+            argument = "info-set -i &quot;/Users/wushuang/Desktop/Payload 2/WeChat.app&quot; -k &quot;CFBundleIdentifier&quot; -o &quot;com.tencent.xin.unique.a&quot; -p"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "info-get -i &quot;/Users/wushuang/Desktop/Payload 2/WeChat.app&quot; -k &quot;CFBundleIdentifier&quot;"
+            argument = "info-get -i &quot;/Users/wushuang/Desktop/Payload 2/WeChat.app/Info.plist&quot; -k &quot;CFBundleIdentifier&quot;"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "code-sign -i &quot;/Users/wushuang/Desktop/Payload 2/WeChat.app&quot; -c &quot;iPhone Developer: Shuang Wu (433G9RW4GG)&quot; -m &quot;/Users/wushuang/Documents/&#x8bc1;&#x4e66;/Shuang Wu/ShuangWu_Development_Wildcard.mobileprovision&quot; -p -v"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-h"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "code-sign -c &quot;iPhone Developer: Shuang Wu (433G9RW4GG)&quot; -m &quot;/Users/wushuang/Documents/&#x8bc1;&#x4e66;/Shuang Wu/ShuangWu_Development_Wildcard.mobileprovision&quot; -i &quot;/Users/wushuang/Desktop/WeChat_temp.ipa&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

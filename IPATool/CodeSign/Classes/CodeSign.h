@@ -13,8 +13,8 @@
 
 @interface CodeSign : NSObject
 
-+ (id)signApp:(ITApp *)app withSigner:(CSSigner *)signer;
++ (IPAResult *)signApp:(ITApp *)app withSigner:(CSSigner *)signer;
 
-+ (id)signFile:(ITPath *)file withSigner:(CSSigner *)signer;
++ (IPAResult *)signFile:(ITPath *)file withSigner:(CSSigner *)signer;
 
 @end

@@ -17,7 +17,7 @@
 
 @implementation ZipArchive
 
-+ (NSError *)zipIPA:(ITIPA *)ipa to:(ITPath *)to {
++ (NSError *)zipIPA:(ITIPA *)ipa to:(ITZip *)to {
 	NSError *error = [self cd:ipa.path zip:@"." to:to.lastPathComponment];
 	if (!error) {
 		MUPath *path = [ipa pathByAppendingComponment:to.lastPathComponment];

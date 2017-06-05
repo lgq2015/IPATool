@@ -12,13 +12,15 @@
 
 @interface ZipArchive : NSObject
 
-+ (NSError *)zipIPA:(ITIPA *)ipa to:(ITPath *)to;
++ (NSError *)zipIPA:(ITIPA *)ipa to:(ITZip *)to;
 
-+ (NSError *)zipPayload:(ITPayload *)payload to:(ITPath *)to;
++ (NSError *)zipPayload:(ITPayload *)payload to:(ITZip *)to;
 
-+ (NSError *)zipApp:(ITApp *)app to:(ITPath *)to;
++ (NSError *)zipApp:(ITApp *)app to:(ITZip *)to;
 
 + (NSError *)zip:(ITPath *)file to:(ITZip *)to;
+
+
 
 + (NSError *)unzip:(ITZip *)file to:(ITIPA *)to;
 
