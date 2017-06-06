@@ -30,8 +30,8 @@
 	return self;
 }
 
-- (instancetype)initWithComponments:(NSArray<NSString *> *)componments {
-	self = [super initWithComponments:componments];
+- (instancetype)initWithComponents:(NSArray<NSString *> *)components {
+	self = [super initWithComponents:components];
 	if (self) {
 		_executableBinary = self;
 		_loadingBinary = self;

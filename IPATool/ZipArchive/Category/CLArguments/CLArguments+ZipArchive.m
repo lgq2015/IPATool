@@ -75,7 +75,7 @@
 		if (outputPath.isIPA) {
 			ITIPA *ipa = [[ITIPA alloc] initWithPath:outputPath];
 			for (MUPath *path in temp.contentPathes) {
-				MUPath *to = [ipa pathByAppendingComponment:path.lastPathComponment];
+				MUPath *to = [ipa pathByAppendingComponent:path.lastPathComponent];
 				[SharedFileManager moveItemAtPath:path.path toPath:to.path autoCover:YES];
 			}
 			return nil;

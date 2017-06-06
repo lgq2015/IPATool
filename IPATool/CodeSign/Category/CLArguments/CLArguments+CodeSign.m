@@ -37,7 +37,7 @@
 		
 		if (mobileProvision.length && !entitlements.length) {
 			MUMobileProvision *mobileProvisionObj = [MUMobileProvision mobileProvisionWithContentsOfFile:mobileProvision];
-			MUPath *tempPath = [[MUPath tempPath] pathByAppendingComponment:@"entitlements.plist"];
+			MUPath *tempPath = [[MUPath tempPath] pathByAppendingComponent:@"entitlements.plist"];
 			[mobileProvisionObj.Entitlements.dictionary writeToFile:tempPath.path atomically:YES];
 			entitlements = tempPath.path;
 		}

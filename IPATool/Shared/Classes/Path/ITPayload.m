@@ -19,11 +19,11 @@
 
 - (ITApp *)app {
 	if (!_app) {
-		NSArray *list = [self contentComponments];
+		NSArray *list = [self contentComponents];
 		NSString *path = nil;
-		for (NSString *componment in list) {
-			if ([componment.pathExtension isEqualToString:@"app"]) {
-				path = componment;
+		for (NSString *component in list) {
+			if ([component.pathExtension isEqualToString:@"app"]) {
+				path = component;
 				break;
 			}
 		}

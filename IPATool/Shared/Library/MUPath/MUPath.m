@@ -12,21 +12,21 @@
 @implementation MUPath
 
 - (instancetype)initWithPath:(NSString *)path {
-	NSArray *componments = [path componentsSeparatedByString:@"/"];
-	self = [self initWithComponments:componments];
+	NSArray *components = [path componentsSeparatedByString:@"/"];
+	self = [self initWithComponents:components];
 	return self;
 }
 
 - (instancetype)initWithMUPath:(MUPath *)path {
-	NSArray *componments = path.componments;
-	self = [self initWithComponments:componments];
+	NSArray *components = path.components;
+	self = [self initWithComponents:components];
 	return self;
 }
 
-- (instancetype)initWithComponments:(NSArray<NSString *> *)componments {
+- (instancetype)initWithComponents:(NSArray<NSString *> *)components {
 	self = [super init];
 	if (self) {
-		_componments = componments;
+		_components = components;
 	}
 	return self;
 }
@@ -37,7 +37,7 @@
 	return tempPath;
 }
 
-- (NSString *)lastPathComponment {
+- (NSString *)lastPathComponent {
 	return self.path.lastPathComponent;
 }
 
@@ -50,8 +50,8 @@
 		NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.path error:nil];
 		if (contents) {
 			NSMutableArray *paths = [NSMutableArray arrayWithCapacity:contents.count];
-			for (NSString *componment in contents) {
-				MUPath *item = [self pathByAppendingComponment:componment];
+			for (NSString *component in contents) {
+				MUPath *item = [self pathByAppendingComponent:component];
 				[paths addObject:item];
 			}
 			contents = [paths copy];
@@ -61,7 +61,7 @@
 	return nil;
 }
 
-- (NSArray<NSString *> *)contentComponments {
+- (NSArray<NSString *> *)contentComponents {
 	if (self.isFolder) {
 		NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.path error:nil];
 		return contents;
@@ -70,19 +70,19 @@
 }
 
 - (NSString *)path {
-	if (_componments.count > 1) {
-		return [self.componments componentsJoinedByString:@"/"];
+	if (_components.count > 1) {
+		return [self.components componentsJoinedByString:@"/"];
 	} else {
-		return _componments.firstObject;
+		return _components.firstObject;
 	}
 	return nil;
 }
 
 - (instancetype)superPath {
-	if (self.componments.count) {
-		NSMutableArray *componments = [NSMutableArray arrayWithArray:self.componments];
-		[componments removeLastObject];
-		MUPath *path = [[MUPath alloc] initWithComponments:componments];
+	if (self.components.count) {
+		NSMutableArray *components = [NSMutableArray arrayWithArray:self.components];
+		[components removeLastObject];
+		MUPath *path = [[MUPath alloc] initWithComponents:components];
 		return path;
 	} else {
 		return nil;
@@ -114,7 +114,7 @@
 }
 
 - (BOOL)is:(NSString *)fileName {
-	return [self.lastPathComponment.lowercaseString isEqualToString:fileName.lowercaseString];
+	return [self.lastPathComponent.lowercaseString isEqualToString:fileName.lowercaseString];
 }
 
 - (BOOL)isA:(NSString *)pathExtension {
@@ -129,13 +129,13 @@
 	return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
-- (instancetype)pathByAppendingComponment:(NSString *)componment {
-	NSString *path = [self.path stringByAppendingPathComponent:componment];
+- (instancetype)pathByAppendingComponent:(NSString *)component {
+	NSString *path = [self.path stringByAppendingPathComponent:component];
 	return [[[self class] alloc] initWithPath:path];
 }
 
-- (instancetype)pathByReplacingLastPastComponment:(NSString *)componment {
-	return [self.superPath pathByAppendingComponment:componment];
+- (instancetype)pathByReplacingLastPastComponent:(NSString *)component {
+	return [self.superPath pathByAppendingComponent:component];
 }
 
 - (void)createDirectoryIfNeeds {

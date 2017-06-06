@@ -16,7 +16,7 @@
 @implementation ITPath
 
 - (BOOL)isIPA {
-	ITPath *payload = [self pathByAppendingComponment:@"Payload"];
+	ITPath *payload = [self pathByAppendingComponent:@"Payload"];
 	return payload.exist;
 }
 

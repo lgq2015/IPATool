@@ -84,7 +84,7 @@
 }
 
 - (NSError *)signWithMobileProvisionAndEntitlements:(ITPath *)file {
-	CLVerbose([CLArguments sharedInstance], "Code sign %s with entitlements ...\n", file.lastPathComponment.UTF8String);
+	CLVerbose([CLArguments sharedInstance], "Code sign %s with entitlements ...\n", file.lastPathComponent.UTF8String);
 	id res = CLLaunchWithArguments(@[@"/usr/bin/codesign",
 									  @"-vvv", @"-fs",
 									  self.certificateName,
@@ -100,7 +100,7 @@
 }
 
 - (NSError *)signWithoutMobileProvisionAndEntitlements:(ITPath *)file {
-	CLVerbose([CLArguments sharedInstance], "Code sign %s ...\n", file.lastPathComponment.UTF8String);
+	CLVerbose([CLArguments sharedInstance], "Code sign %s ...\n", file.lastPathComponent.UTF8String);
 	id res =  CLLaunchWithArguments(@[@"/usr/bin/codesign", @"-fs", self.certificateName, @"--no-strict", file.path]);
 	if ([res isKindOfClass:[NSError class]]) {
 		return res;

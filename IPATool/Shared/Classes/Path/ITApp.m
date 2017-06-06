@@ -57,8 +57,8 @@
 }
 
 - (NSArray *)pluginNamesWithFullPath:(BOOL)fullPath {
-	MUPath *pluginPath = [self pathByAppendingComponment:@"PlugIns"];
-	NSArray *contents = [pluginPath contentComponments];
+	MUPath *pluginPath = [self pathByAppendingComponent:@"PlugIns"];
+	NSArray *contents = [pluginPath contentComponents];
 	if (!contents) {
 		return nil;
 	}
@@ -66,8 +66,8 @@
 	if (fullPath) {
 		NSMutableArray *array = [NSMutableArray arrayWithCapacity:contents.count];
 		NSString *path = pluginPath.path;
-		for (NSString *componment in contents) {
-			NSString *pluginItem = [path stringByAppendingPathComponent:componment];
+		for (NSString *component in contents) {
+			NSString *pluginItem = [path stringByAppendingPathComponent:component];
 			[array addObject:pluginItem];
 		}
 		contents = [array copy];
