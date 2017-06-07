@@ -122,7 +122,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "code-sign -c &quot;iPhone Developer: Shuang Wu (433G9RW4GG)&quot; -m &quot;/Users/wushuang/Documents/&#x8bc1;&#x4e66;/Shuang Wu/ShuangWu_Development_Wildcard.mobileprovision&quot; -i &quot;/Users/wushuang/Desktop/WeChat_temp.ipa&quot;"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
