@@ -124,6 +124,14 @@
             argument = "code-sign -c &quot;iPhone Developer: Shuang Wu (433G9RW4GG)&quot; -m &quot;/Users/wushuang/Documents/&#x8bc1;&#x4e66;/Shuang Wu/ShuangWu_Development_Wildcard.mobileprovision&quot; -i &quot;/Users/wushuang/Desktop/WeChat_temp.ipa&quot;"
             isEnabled = "NO">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-c &quot;iPhone Developer: Shuang Wu (433G9RW4GG)&quot; -m &quot;/Users/wushuang/Documents/&#x8bc1;&#x4e66;/Shuang Wu/ShuangWu_Development_Wildcard.mobileprovision&quot; --icon &quot;/Users/wushuang/Documents/repo/WeChatPlugin_Pro/Resource/Packing/WeChatIcon/&#x91d1;&#x8272;.png&quot; --bundle-identifier &quot;com.tencent.xin&quot; &quot;/Users/wushuang/Desktop/xiaoji_1.5.3.1_coderesign.ipa&quot; &quot;/Users/wushuang/Desktop/xiaoji_1.5.3.1_coderesign_ipatool.ipa&quot;  --verbose"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "icon-get --app &quot;/Users/wushuang/Desktop/Payload 4/ChickJail.app&quot; --scale all --device all --verbose"
+            isEnabled = "YES">
+         </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>

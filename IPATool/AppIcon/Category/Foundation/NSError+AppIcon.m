@@ -10,7 +10,7 @@
 
 @implementation NSError (AppIcon)
 
-+ (instancetype)ai_errorWithCode:(NSInteger)code description:(NSString *)description{
++ (instancetype)ai_errorWithCode:(NSInteger)code description:(NSString *)description {
 	return [NSError errorWithDomain:@"com.unique.ipatool.appicon" code:code userInfo:@{NSLocalizedDescriptionKey:description}];
 }
 

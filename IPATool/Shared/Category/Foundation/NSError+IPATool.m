@@ -18,4 +18,8 @@
 	printf("%s\n", self.localizedDescription.UTF8String);
 }
 
++ (instancetype)ipa_errorWithCode:(NSInteger)code description:(NSString *)description {
+	return [NSError errorWithDomain:@"com.unique.ipatool" code:code userInfo:@{NSLocalizedDescriptionKey:description}];
+}
+
 @end

@@ -24,6 +24,9 @@ static NSString *AIScaleMarkWithScale(NSUInteger scale) {
 	self = [super init];
 	if (self) {
 		self.mPath = [NSMutableString stringWithString:string];
+		if (self.mPath.pathExtension.length == 0) {
+			[self.mPath appendString:@".png"];
+		}
 	}
 	return self;
 }

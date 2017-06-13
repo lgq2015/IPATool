@@ -14,4 +14,6 @@
 
 - (void)ipa_println;
 
++ (instancetype)ipa_errorWithCode:(NSInteger)code description:(NSString *)description;
+
 @end

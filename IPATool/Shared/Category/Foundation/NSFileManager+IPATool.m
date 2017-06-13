@@ -8,16 +8,28 @@
 
 #import "NSFileManager+IPATool.h"
 
+#define IFErrorReturn if (error) return error;
+
 @implementation NSFileManager (IPATool)
 
-- (BOOL)moveItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath autoCover:(BOOL)autoCover {
-	[self removeItemAtPath:dstPath error:nil];
-	return [self moveItemAtPath:srcPath toPath:dstPath error:nil];
+- (NSError *)moveItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath autoCover:(BOOL)autoCover {
+	NSError *error = nil;
+	if ([self fileExistsAtPath:dstPath]) {
+		[self removeItemAtPath:dstPath error:&error];
+		IFErrorReturn;
+	}
+	[self moveItemAtPath:srcPath toPath:dstPath error:&error];
+	return error;
 }
 
-- (BOOL)copyItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath autoCover:(BOOL)autoCover {
-	[self removeItemAtPath:dstPath error:nil];
-	return [self copyItemAtPath:srcPath toPath:dstPath error:nil];
+- (NSError *)copyItemAtPath:(NSString *)srcPath toPath:(NSString *)dstPath autoCover:(BOOL)autoCover {
+	NSError *error = nil;
+	if ([self fileExistsAtPath:dstPath]) {
+		[self removeItemAtPath:dstPath error:&error];
+		IFErrorReturn;
+	}
+	[self copyItemAtPath:srcPath toPath:dstPath error:&error];
+	return error;
 }
 
 @end

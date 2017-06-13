@@ -43,8 +43,11 @@ static AIDeviceOptions AIDeviceOptionsInArguments(CLArguments *arguments) {
 		if ([input isEqualToString:@"iPhone"]) {
 			deviceOptions = AIDevicePhone;
 		}
-		if ([input isEqualToString:@"iPad"]) {
+		else if ([input isEqualToString:@"iPad"]) {
 			deviceOptions = AIDevicePad;
+		}
+		else {
+			deviceOptions = AIDeviceAll;
 		}
 	} else {
 		deviceOptions = AIDeviceAll;

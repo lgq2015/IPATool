@@ -102,7 +102,7 @@
 		AIIconNameSet *set = [AIIconNameSet set];
 		NSArray *list = info[@"CFBundleIconFiles"];
 		for (NSString *name in list) {
-			NSSet *fileName = [self MatchedIconFilesWithFileName:name isPad:YES];
+			NSSet *fileName = [self MatchedIconFilesWithFileName:name isPad:NO];
 			[set addIconNames:fileName.allObjects];
 		}
 		[icons addIconNames:set.allObjects];

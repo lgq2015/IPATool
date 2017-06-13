@@ -20,4 +20,6 @@
 
 #import "IPAResult.h"
 
+#import "CLArguments+IPATool.h"
+
 #endif /* PrefixHeader_pch */

@@ -24,4 +24,7 @@
 
 + (NSError *)unzip:(ITZip *)file to:(ITIPA *)to;
 
+
++ (NSError *)from:(ITPath *)from to:(ITPath *)to;
+
 @end

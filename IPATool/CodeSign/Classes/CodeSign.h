@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ITPayload.h"
-
-@class CSSigner;
+#import "CSSigner.h"
 
 @interface CodeSign : NSObject
 

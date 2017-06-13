@@ -9,6 +9,8 @@
 #import "CLArguments.h"
 #import "NSError+IPATool.h"
 
+#define IPAVerbose(...) CLVerbose([CLArguments sharedInstance], __VA_ARGS__);
+
 @interface CLArguments (IPATool)
 
 + (instancetype)sharedInstance;
