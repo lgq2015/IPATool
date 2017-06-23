@@ -20,6 +20,7 @@
 		6D04F6E71EE147A4007D48F5 /* ITMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6E61EE147A4007D48F5 /* ITMobileProvision.m */; };
 		6D04F6ED1EE14A67007D48F5 /* MUEntitlements.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6EA1EE14A67007D48F5 /* MUEntitlements.m */; };
 		6D04F6EE1EE14A67007D48F5 /* MUMobileProvision.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D04F6EC1EE14A67007D48F5 /* MUMobileProvision.m */; };
+		6D0C3DE91EF26C2000CDC934 /* Certificate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0C3DE81EF26C2000CDC934 /* Certificate.m */; };
 		6D64B5391EE506E800CF54BB /* IPAResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D64B5381EE506E800CF54BB /* IPAResult.m */; };
 		6D66270A1EE15A8A0036E136 /* NSError+CodeSign.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6627091EE15A8A0036E136 /* NSError+CodeSign.m */; };
 		6D6627131EE16FAB0036E136 /* ITPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D6627121EE16FAB0036E136 /* ITPackage.m */; };
@@ -94,6 +95,8 @@
 		6D04F6EA1EE14A67007D48F5 /* MUEntitlements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUEntitlements.m; sourceTree = "<group>"; };
 		6D04F6EB1EE14A67007D48F5 /* MUMobileProvision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUMobileProvision.h; sourceTree = "<group>"; };
 		6D04F6EC1EE14A67007D48F5 /* MUMobileProvision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUMobileProvision.m; sourceTree = "<group>"; };
+		6D0C3DE71EF26C2000CDC934 /* Certificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Certificate.h; sourceTree = "<group>"; };
+		6D0C3DE81EF26C2000CDC934 /* Certificate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Certificate.m; sourceTree = "<group>"; };
 		6D64B5371EE506E800CF54BB /* IPAResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAResult.h; sourceTree = "<group>"; };
 		6D64B5381EE506E800CF54BB /* IPAResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPAResult.m; sourceTree = "<group>"; };
 		6D6627081EE15A8A0036E136 /* NSError+CodeSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+CodeSign.h"; sourceTree = "<group>"; };
@@ -290,6 +293,39 @@
 			path = MUMobileProvision;
 			sourceTree = "<group>";
 		};
+		6D0C3DE31EF26BFC00CDC934 /* Certificate */ = {
+			isa = PBXGroup;
+			children = (
+				6D0C3DE41EF26BFC00CDC934 /* Category */,
+				6D0C3DE61EF26BFC00CDC934 /* Classes */,
+			);
+			path = Certificate;
+			sourceTree = "<group>";
+		};
+		6D0C3DE41EF26BFC00CDC934 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				6D0C3DE51EF26BFC00CDC934 /* CLArguments */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		6D0C3DE51EF26BFC00CDC934 /* CLArguments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CLArguments;
+			sourceTree = "<group>";
+		};
+		6D0C3DE61EF26BFC00CDC934 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6D0C3DE71EF26C2000CDC934 /* Certificate.h */,
+				6D0C3DE81EF26C2000CDC934 /* Certificate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		6DAEED831EDE6B3000DB04F2 = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +351,7 @@
 				6DAEEDE91EDEB35300DB04F2 /* InfoPlist */,
 				6D04F6D61EE13C84007D48F5 /* CodeSign */,
 				6D04F6E11EE146D9007D48F5 /* MobileProvision */,
+				6D0C3DE31EF26BFC00CDC934 /* Certificate */,
 				D4ED22821EE25A120057F55F /* ZipArchive */,
 				6DAEED8F1EDE6B3000DB04F2 /* main.m */,
 				6DAEEDC41EDE765D00DB04F2 /* PrefixHeader.pch */,
@@ -660,6 +697,7 @@
 				6DAEEDD31EDE96CB00DB04F2 /* AIIconName.m in Sources */,
 				D4ED22881EE25A4A0057F55F /* CLArguments+ZipArchive.m in Sources */,
 				6DAEEDF21EDEBA1C00DB04F2 /* InfoPlist.m in Sources */,
+				6D0C3DE91EF26C2000CDC934 /* Certificate.m in Sources */,
 				6DAEEDE81EDEAFA100DB04F2 /* NSError+IPATool.m in Sources */,
 				6D04F6C61EE0FFAC007D48F5 /* ITIPA.m in Sources */,
 				6D04F6C91EE10A55007D48F5 /* ITInfoPlist.m in Sources */,
